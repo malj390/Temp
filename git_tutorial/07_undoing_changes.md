@@ -1,4 +1,4 @@
-[Previous (Stashing Changes)](06_stashing_changes.md) | [Back to Main](README.md) | [Next (Comparing Changes)](08_comparing_changes.md) | [Down](#clean)
+[Previous (Stashing Changes)](06_stashing_changes.md) | [Back to Main](README.md) | [Next (Comparing Changes)](08_comparing_changes.md) | [Down](#quick-reference)
 
 # 07 - Undoing Changes
 

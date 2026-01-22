@@ -1,4 +1,4 @@
-[Previous (Setup Test Environment)](00_set_up.md) | [Back to Main](README.md) | [Next (Branch Management)](02_branch.md) | [Down](#remote-sync)
+[Previous (Setup Test Environment)](00_set_up.md) | [Back to Main](README.md) | [Next (Branch Management)](02_branch.md) | [Down](#quick-reference)
 
 # Basic Git Operations
 

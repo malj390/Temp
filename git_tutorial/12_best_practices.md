@@ -556,4 +556,7 @@ fi
 - [ ] Follows project style guide
 - [ ] Commit message is clear
 - [ ] No sensitive data included
+
+---
+
 [Previous (Quick Reference)](11_quick_reference.md) | [Back to Main](README.md) | [Top](#12---best-practices)

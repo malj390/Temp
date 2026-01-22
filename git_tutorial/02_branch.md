@@ -1,4 +1,4 @@
-[Previous (Basic Git Commands)](01_basic.md) | [Back to Main](README.md) | [Next (Staging Changes)](03_stages.md) | [Down](#verify)
+[Previous (Basic Git Commands)](01_basic.md) | [Back to Main](README.md) | [Next (Staging Changes)](03_stages.md) | [Down](#quick-reference)
 
 # Branch Management
 

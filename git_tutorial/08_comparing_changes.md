@@ -1,4 +1,4 @@
-[Previous (Undoing Changes)](07_undoing_changes.md) | [Back to Main](README.md) | [Next (Remote Repository Management)](09_remote_repository_management.md) | [Down](#formatting)
+[Previous (Undoing Changes)](07_undoing_changes.md) | [Back to Main](README.md) | [Next (Remote Repository Management)](09_remote_repository_management.md) | [Down](#quick-reference)
 
 # 08 - Comparing Changes
 

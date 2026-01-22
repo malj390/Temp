@@ -1,4 +1,4 @@
-[Previous (Staging Changes)](03_stages.md) | [Back to Main](README.md) | [Next (Worktree)](05_worktree.md) | [Down](#strategies)
+[Previous (Staging Changes)](03_stages.md) | [Back to Main](README.md) | [Next (Worktree)](05_worktree.md) | [Down](#quick-reference)
 
 # Cherry-Pick Guide
 

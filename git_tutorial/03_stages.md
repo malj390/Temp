@@ -1,4 +1,4 @@
-[Previous (Branch Management)](02_branch.md) | [Back to Main](README.md) | [Next (Staging Changes)](03_stages.md) | [Down](#best-practices)
+[Previous (Branch Management)](02_branch.md) | [Back to Main](README.md) | [Next (Cherry-Pick)](04_cherry-pick.md) | [Down](#best-practices)
 
 # Working with Stages
 
@@ -779,4 +779,4 @@ git add **/*.js              # Recursive pattern
 
 ---
 
-[Previous (Branch Management)](02_branch.md) | [Back to Main](README.md) | [Next (Cherry-pick)](04_cherry-pick.md) | [Top](#working-with-stages)
+[Previous (Branch Management)](02_branch.md) | [Back to Main](README.md) | [Next (Cherry-Pick)](04_cherry-pick.md) | [Top](#working-with-stages)

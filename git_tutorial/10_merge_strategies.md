@@ -1,4 +1,4 @@
-[Previous (Remote Repository Management)](09_remote_repository_management.md) | [Back to Main](README.md) | [Next (Quick Reference)](11_quick_reference.md) | [Down](#conflict-resolution)
+[Previous (Remote Repository Management)](09_remote_repository_management.md) | [Back to Main](README.md) | [Next (Quick Reference)](11_quick_reference.md) | [Down](#quick-reference)
 
 # 10 - Merge Strategies
 

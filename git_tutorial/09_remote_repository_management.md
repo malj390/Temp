@@ -1,4 +1,4 @@
-[Previous (Comparing Changes)](08_comparing_changes.md) | [Back to Main](README.md) | [Next (Merge Strategies)](10_merge_strategies.md) | [Down](#push)
+[Previous (Comparing Changes)](08_comparing_changes.md) | [Back to Main](README.md) | [Next (Merge Strategies)](10_merge_strategies.md) | [Down](#quick-reference)
 
 # 09 - Remote Repository Management
 
