@@ -1,4 +1,4 @@
-[Back to Main](README.md) | [Previous](09_remote_repository_management.md) | [Next](11_quick_reference.md)
+[Previous (Remote Repository Management)](09_remote_repository_management.md) | [Back to Main](README.md) | [Next (Quick Reference)](11_quick_reference.md) | [Down](#conflict-resolution)
 
 # 10 - Merge Strategies
 
@@ -236,5 +236,4 @@ git merge --continue           # Continue merge
 ---
 
 ---
-
-[Next](11_quick_reference.md)
+[Previous (Remote Repository Management)](09_remote_repository_management.md) | [Back to Main](README.md) | [Next (Quick Reference)](11_quick_reference.md) | [Top](#10---merge-strategies)

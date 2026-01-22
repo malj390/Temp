@@ -1,4 +1,4 @@
-[Back to Main](README.md) | [Previous](01_basic.md) | [Next](03_stages.md)
+[Previous (Basic Git Commands)](01_basic.md) | [Back to Main](README.md) | [Next (Staging Changes)](03_stages.md) | [Down](#verify)
 
 # Branch Management
 
@@ -936,4 +936,4 @@ git branch
 
 ---
 
-[Next](03_stages.md)
+[Previous (Basic Git Operations)](01_basic.md) | [Back to Main](README.md) | [Next (Staging Changes)](03_stages.md) | [Top](#branch-management)

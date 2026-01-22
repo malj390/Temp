@@ -1,4 +1,4 @@
-[Back to Main](README.md) | [Previous](07_undoing_changes.md) | [Next](09_remote_repository_management.md)
+[Previous (Undoing Changes)](07_undoing_changes.md) | [Back to Main](README.md) | [Next (Remote Repository Management)](09_remote_repository_management.md) | [Down](#formatting)
 
 # 08 - Comparing Changes
 
@@ -254,7 +254,4 @@ git log --graph                # With graph
 ```
 
 ---
-
----
-
-[Next](09_remote_repository_management.md)
+[Previous (Undoing Changes)](07_undoing_changes.md) | [Back to Main](README.md) | [Next (Remote Repository Management)](09_remote_repository_management.md) | [Top](#08---comparing-changes)

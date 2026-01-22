@@ -1,4 +1,4 @@
-[Back to Main](README.md) | [Previous](08_comparing_changes.md) | [Next](10_merge_strategies.md)
+[Previous (Comparing Changes)](08_comparing_changes.md) | [Back to Main](README.md) | [Next (Merge Strategies)](10_merge_strategies.md) | [Down](#push)
 
 # 09 - Remote Repository Management
 
@@ -278,5 +278,4 @@ git push --force-with-lease    # Force (safer)
 ---
 
 ---
-
-[Next](10_merge_strategies.md)
+[Previous (Comparing Changes)](08_comparing_changes.md) | [Back to Main](README.md) | [Next (Merge Strategies)](10_merge_strategies.md) | [Top](#09---remote-repository-management)

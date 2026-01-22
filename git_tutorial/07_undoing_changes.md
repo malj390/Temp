@@ -1,4 +1,4 @@
-[Back to Main](README.md) | [Previous](06_stashing_changes.md) | [Next](08_comparing_changes.md)
+[Previous (Stashing Changes)](06_stashing_changes.md) | [Back to Main](README.md) | [Next (Comparing Changes)](08_comparing_changes.md) | [Down](#clean)
 
 # 07 - Undoing Changes
 
@@ -334,5 +334,4 @@ git clean -fd                  # Remove untracked
 ---
 
 ---
-
-[Next](08_comparing_changes.md)
+[Previous (Stashing Changes)](06_stashing_changes.md) | [Back to Main](README.md) | [Next (Comparing Changes)](08_comparing_changes.md) | [Top](#07---undoing-changes)

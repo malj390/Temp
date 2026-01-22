@@ -1,4 +1,4 @@
-[Back to Main](README.md) | [Previous](05_worktree.md) | [Next](07_undoing_changes.md)
+[Previous (Worktree)](05_worktree.md) | [Back to Main](README.md) | [Next (Undoing Changes)](07_undoing_changes.md) | [Down](#quick-reference)
 
 # 06 - Stashing Changes
 
@@ -251,7 +251,4 @@ git stash branch <name>        # Branch from stash
 ```
 
 ---
-
----
-
-[Next](07_undoing_changes.md)
+[Previous (Worktree)](05_worktree.md) | [Back to Main](README.md) | [Next (Undoing Changes)](07_undoing_changes.md) | [Top](#06---stashing-changes)

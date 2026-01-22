@@ -1,4 +1,4 @@
-[Back to Main](README.md) | [Previous](10_merge_strategies.md) | [Next](12_best_practices.md)
+[Previous (Merge Strategies)](10_merge_strategies.md) | [Back to Main](README.md) | [Next (Best Practices)](12_best_practices.md) | [Down](#aliases-(add-to-~/.gitconfig))
 
 # 11 - Quick Reference Cheatsheet
 
@@ -123,5 +123,4 @@ git clean -fd
 ---
 
 ---
-
-[Next](12_best_practices.md)
+[Previous (Merge Strategies)](10_merge_strategies.md) | [Back to Main](README.md) | [Next (Best Practices)](12_best_practices.md) | [Top](#11---quick-reference-cheatsheet)

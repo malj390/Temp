@@ -1,4 +1,4 @@
-[Back to Main](README.md) | [Previous](03_stages.md) | [Next](05_worktree.md)
+[Previous (Staging Changes)](03_stages.md) | [Back to Main](README.md) | [Next (Worktree)](05_worktree.md) | [Down](#strategies)
 
 # Cherry-Pick Guide
 
@@ -214,12 +214,14 @@ Unmerged paths:
 <<<<<<< HEAD
 // Current branch version
 void function() {
-    printf("Version A\n");
+    printf("Version A
+");
 }
 =======
 // Cherry-picked version
 void function() {
-    printf("Version B\n");
+    printf("Version B
+");
 }
 >>>>>>> abc123 (Fix bug)
 ```
@@ -229,7 +231,8 @@ void function() {
    ```c
    // Choose one version or combine them
    void function() {
-    printf("Combined Version\n");
+    printf("Combined Version
+   ");
    }
    ```
 
@@ -857,4 +860,4 @@ git cherry-pick -X ours <commit>    # Favor our changes
 
 ---
 
-[Next](05_worktree.md)
+[Previous (Staging Changes)](03_stages.md) | [Back to Main](README.md) | [Next (Worktree)](05_worktree.md) | [Top](#cherry-pick-guide)

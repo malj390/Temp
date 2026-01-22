@@ -1,4 +1,4 @@
-[Back to Main](README.md) | [Next](01_basic.md) | [Down](#tips-for-using-this-environment)
+[Back to Main](README.md) | [Next (Basic Git Commands)](01_basic.md) | [Down](#tips-for-using-this-environment)
 
 # Setup Test Environment
 
@@ -321,4 +321,4 @@ You're now ready to proceed with the tutorials:
 - **Create snapshots** - commit your state before trying risky operations
 
 Happy learning! 🎓
-[Back to Main](README.md) | [Next](01_basic.md) | [Top](#setup-test-environment)
+[Back to Main](README.md) | [Next (Basic Git Commands)](01_basic.md) | [Top](#setup-test-environment)

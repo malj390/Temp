@@ -1,4 +1,4 @@
-[Back to Main](README.md) | [Previous](00_set_up.md) | [Next](02_branch.md)
+[Previous (Setup Test Environment)](00_set_up.md) | [Back to Main](README.md) | [Next (Branch Management)](02_branch.md) | [Down](#remote-sync)
 
 # Basic Git Operations
 
@@ -831,4 +831,4 @@ git fetch                   # Download without merging
 
 ---
 
-[Next](02_branch.md)
+[Previous (Setup Test Environment)](00_set_up.md) | [Back to Main](README.md) | [Next (Branch Management)](02_branch.md) | [Top](#basic-git-operations)

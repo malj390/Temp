@@ -1,4 +1,4 @@
-[Back to Main](README.md) | [Previous](11_quick_reference.md)
+[Previous (Quick Reference)](11_quick_reference.md) | [Back to Main](README.md) | [Down](#final-checklist)
 
 # 12 - Best Practices
 
@@ -556,4 +556,4 @@ fi
 - [ ] Follows project style guide
 - [ ] Commit message is clear
 - [ ] No sensitive data included
-- [ ] Only related changes included
+[Previous (Quick Reference)](11_quick_reference.md) | [Back to Main](README.md) | [Top](#12---best-practices)

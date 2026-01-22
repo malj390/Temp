@@ -1,4 +1,4 @@
-[Back to Main](README.md) | [Previous](04_cherry-pick.md) | [Next](06_stashing_changes.md)
+[Previous (Cherry-Pick)](04_cherry-pick.md) | [Back to Main](README.md) | [Next (Stashing Changes)](06_stashing_changes.md) | [Down](#key-takeaways)
 
 # Git Worktree
 
@@ -713,4 +713,4 @@ git worktree unlock <path>                     # Allow removal
 
 ---
 
-[Next](06_stashing_changes.md)
+[Previous (Cherry-pick)](04_cherry-pick.md) | [Back to Main](README.md) | [Next (Stashing Changes)](06_stashing_changes.md) | [Top](#git-worktree)

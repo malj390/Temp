@@ -150,4 +150,4 @@ Each tutorial is self-contained but references related concepts for deeper under
 
 ---
 
-**Ready to start?** Head to [Setup Test Environment](01_set_up.md) to begin your Git mastery journey! 🚀
+**Ready to start?** Head to [Setup Test Environment](00_set_up.md) to begin your Git mastery journey! 🚀
