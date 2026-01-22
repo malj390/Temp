@@ -1,4 +1,4 @@
-[Back to Main](README.md) | [Next](01_basic.md)
+[Back to Main](README.md) | [Next](01_basic.md) | [Down](#tips-for-using-this-environment)
 
 # Setup Test Environment
 
@@ -47,7 +47,8 @@ cat > src\/main.c << 'EOF'
 #include <stdio.h>
 
 int main(void) {
-    printf("Hello, Git!\n");
+    printf("Hello, Git!
+");
     return 0;
 }
 EOF
@@ -56,7 +57,8 @@ cat > src\/utils.c << 'EOF'
 #include "utils.h"
 
 void print_message(char *msg) {
-    printf("%s\n", msg);
+    printf("%s
+", msg);
 }
 EOF
 
@@ -207,7 +209,8 @@ cat > src\/logger.c << 'EOF'
 
 void log_message(char *msg) {
     time_t now = time(NULL);
-    printf("[%s] %s\n", ctime(&now), msg);
+    printf("[%s] %s
+", ctime(&now), msg);
 }
 EOF
 
@@ -227,7 +230,8 @@ cat > src\/test.c << 'EOF'
 
 void test_utils() {
     assert(1 == 1);
-    printf("Tests passed!\n");
+    printf("Tests passed!
+");
 }
 EOF
 
@@ -317,5 +321,4 @@ You're now ready to proceed with the tutorials:
 - **Create snapshots** - commit your state before trying risky operations
 
 Happy learning! 🎓
-
-[Next](01_basic.md)
+[Back to Main](README.md) | [Next](01_basic.md) | [Top](#setup-test-environment)
