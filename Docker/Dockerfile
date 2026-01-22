@@ -32,6 +32,8 @@ RUN apt update && apt install -y \
     perl \
     openjdk-17-jdk \
     nodejs npm \
+    sudo \
+    fzf \
     && apt clean && rm -rf /var/lib/apt/lists/*
 
 # ---------------------------
@@ -49,12 +51,47 @@ RUN pip3 install --upgrade pip==22.0.2 \
  && pip3 install norminette==3.3.58
 
 # ---------------------------
+# Fix Norminette crash
+# ---------------------------
+COPY norminette_wrapper.sh /tmp/norminette_wrapper.sh
+RUN mv /usr/local/bin/norminette /usr/local/bin/norminette.bin && \
+    mv /tmp/norminette_wrapper.sh /usr/local/bin/norminette && \
+    chmod +x /usr/local/bin/norminette
+
+
+# ---------------------------
+# Create a non-root user
+# ---------------------------
+ARG USER_ID
+ARG GROUP_ID
+
+RUN if [ -n "$USER_ID" ] && [ -n "$GROUP_ID" ]; then \
+    groupadd -g $GROUP_ID 42user && \
+    useradd -l -u $USER_ID -g $GROUP_ID -m 42user && \
+    adduser 42user sudo && \
+    echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers; \
+    fi
+
+# ---------------------------
+# Setup shell history and custom commands
+# ---------------------------
+RUN mkdir -p /home/42user/.config/fish && \
+    touch /home/42user/.bash_history && \
+    touch /home/42user/.zshrc && \
+    chown -R $USER_ID:$GROUP_ID /home/42user
+
+USER 42user
+ENV HOME /home/42user
+WORKDIR /home/42user/project
+
+# ---------------------------
 # Verify core tool versions
 # ---------------------------
 RUN echo "==== Installed tool versions ====" && \
+    export PATH="/usr/bin:$PATH" && \
     echo "cc: $(cc --version | head -n 1)" && \
     echo "gcc: $(gcc --version | head -n 1)" && \
-    echo "clang: $(clang --version | head -n 1)" && \
+    echo "clang: $(clang-12 --version | head -n 1)" && \
     echo "python3: $(python3 --version)" && \
     echo "pip3: $(pip3 --version)" && \
     echo "make: $(make --version | head -n 1)" && \
@@ -67,7 +104,7 @@ RUN echo "==== Installed tool versions ====" && \
     echo "zsh: $(zsh --version)" && \
     echo "fish: $(fish --version)" && \
     echo "gdb: $(gdb --version | head -n 1)" && \
-    echo "lldb: $(lldb --version | head -n 1)" && \
+    echo "lldb: $(lldb-12 --version | head -n 1)" && \
     echo "ruby: $(ruby --version)" && \
     echo "node: $(node --version)" && \
     echo "java: $(java -version 2>&1 | head -n 1)" && \
