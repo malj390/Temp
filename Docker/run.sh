@@ -28,11 +28,21 @@ if ! docker image inspect "$IMAGE_NAME" &> /dev/null; then
         -f "$DOCKERFILE" .
 fi
 
+# --- Create history files on host if they don't exist ---
+touch "$HOME/.bash_history"
+touch "$HOME/.zsh_history"
+mkdir -p "$HOME/.local/share/fish"
+touch "$HOME/.local/share/fish/fish_history"
+
 # --- Run the Docker container ---
 echo "Running Docker container ભા"
 docker run -it --rm --hostname 42container \
     -v "$(pwd)":/app \
     -v "$HOME/.bash_history:/home/42user/.bash_history" \
+    -v "$HOME/.zsh_history:/home/42user/.zsh_history" \
+    -v "$HOME/.local/share/fish/fish_history:/home/42user/.local/share/fish/fish_history" \
+    -v "$HOME/.gitconfig:/home/42user/.gitconfig" \
+    -v $SSH_AUTH_SOCK:/ssh-agent -e SSH_AUTH_SOCK=/ssh-agent \
     -e HISTFILE=/home/42user/.bash_history \
     "$IMAGE_NAME" \
     "$@"

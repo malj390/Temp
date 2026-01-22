@@ -76,8 +76,9 @@ RUN if [ -n "$USER_ID" ] && [ -n "$GROUP_ID" ]; then \
 # Setup shell history and custom commands
 # ---------------------------
 RUN mkdir -p /home/42user/.config/fish && \
+    mkdir -p /home/42user/.local/share/fish && \
     touch /home/42user/.bash_history && \
-    touch /home/42user/.zshrc && \
+    touch /home/42user/.zsh_history && \
     chown -R $USER_ID:$GROUP_ID /home/42user
 
 USER 42user
