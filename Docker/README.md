@@ -1,3 +1,11 @@
+## File Purposes
+
+* **`Dockerfile`**: Defines the Docker image for a 42-like development environment. It starts from an Ubuntu 22.04 base and installs all the necessary tools like `clang`, `gcc`, `make`, `valgrind`, `norminette`, etc. It also creates a non-root user to avoid permission issues.
+* **`norminette_wrapper.sh`**: A wrapper script to fix a crash with `norminette`. It calls the original `norminette.bin` with the provided arguments.
+* **`run.sh`**: This script builds the Docker image (if it doesn't exist) and runs the container. It mounts the current working directory, shell history files, and git configuration into the container.
+* **`setup_alias.sh`**: This script creates a shell function (alias) named `42` in the user's shell configuration file (`.bashrc`, `.zshrc`, or `config.fish`). This allows the user to run the Docker container from any directory.
+* 
+
 # 42 Environment Docker Container
 
 This repository provides a Docker-based development environment that replicates the setup used at 42 schools. It allows you to work on your projects in a consistent and predictable environment, regardless of your host operating system.
@@ -87,7 +95,9 @@ To exit the container's interactive session, you can either run the `exit` comma
 
 ### Checking if the Container is Running
 
-If you are running the `42` command in one terminal, you can verify that the container is active from another terminal using `docker ps`. Since the container is configured with `--rm` (remove on exit), it will only appear in this list while it's actively running an interactive session.
+If you are running the
+
+ `42` command in one terminal, you can verify that the container is active from another terminal using `docker ps`. Since the container is configured with `--rm` (remove on exit), it will only appear in this list while it's actively running an interactive session.
 
 ```bash
 docker ps
