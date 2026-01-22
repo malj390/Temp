@@ -1,5 +1,24 @@
 [Back to Main](README.md) | [Next (Basic Git Commands)](01_basic.md) | [Down](#tips-for-using-this-environment)
 
+# Table of Contents
+
+- [Table of Contents](#table-of-contents)
+- [Setup Test Environment](#setup-test-environment)
+	- [Purpose](#purpose)
+	- [Step 1: Create Test Repository](#step-1-create-test-repository)
+	- [Step 2: Create Dummy File Structure](#step-2-create-dummy-file-structure)
+	- [Step 3: Verify Structure](#step-3-verify-structure)
+	- [Step 4: Initial Commit](#step-4-initial-commit)
+	- [Step 5: Create Remote Repository (Optional)](#step-5-create-remote-repository-optional)
+		- [Option A: GitHub](#option-a-github)
+		- [Option B: Local "Remote" (for offline practice)](#option-b-local-remote-for-offline-practice)
+	- [Step 6: Create Additional Dummy Content](#step-6-create-additional-dummy-content)
+	- [Step 7: Verify Setup](#step-7-verify-setup)
+	- [Quick Reset (If You Need to Start Over)](#quick-reset-if-you-need-to-start-over)
+	- [What You Now Have](#what-you-now-have)
+	- [Ready to Practice!](#ready-to-practice)
+	- [Tips for Using This Environment](#tips-for-using-this-environment)
+
 # Setup Test Environment
 
 ## Purpose
