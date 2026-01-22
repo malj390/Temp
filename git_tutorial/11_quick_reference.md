@@ -1,4 +1,4 @@
-[Previous (Merge Strategies)](10_merge_strategies.md) | [Back to Main](README.md) | [Next (Best Practices)](12_best_practices.md) | [Down](#aliases-(add-to-home/.gitconfig))
+[Previous (Merge Strategies)](10_merge_strategies.md) | [Back to Main](README.md) | [Next (Best Practices)](12_best_practices.md) | [Down](#add-to-gitconfig)
 
 # 11 - Quick Reference Cheatsheet
 
@@ -106,7 +106,7 @@ git clean -fd
 
 ---
 
-## Aliases (Add to home/.gitconfig)
+## Aliases (Add to gitconfig)
 
 ```ini
 [alias]
