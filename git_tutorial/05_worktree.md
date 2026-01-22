@@ -1,3 +1,5 @@
+[Back to Main](README.md) | [Previous](04_cherry-pick.md) | [Next](06_stashing_changes.md)
+
 # Git Worktree
 
 ## Overview
@@ -9,6 +11,7 @@ Worktrees let you check out multiple branches simultaneously in different direct
 ## The Problem Worktrees Solve
 
 **Traditional workflow:**
+
 ```bash
 # Working on feature
 git checkout feature/api
@@ -24,6 +27,7 @@ git stash pop                # Restore work
 ```
 
 **With worktrees:**
+
 ```
 project/                     ← main worktree (main branch)
 project-feature-api/         ← worktree (feature/api branch)
@@ -39,6 +43,7 @@ Work in all three simultaneously! No stashing, no switching.
 ### `git worktree add <path> <branch>` - Create Worktree
 
 **Example:**
+
 ```bash
 # Currently in main repo
 cd ~/projects/myapp
@@ -52,6 +57,7 @@ git worktree add ../myapp-feature feature/new-ui
 ```
 
 **Work in both:**
+
 ```bash
 # Terminal 1
 cd ~/projects/myapp
@@ -93,11 +99,13 @@ git worktree add ../myapp-v2.0 v2.0.0
 ### `git worktree list` - Show All Worktrees
 
 **Example:**
+
 ```bash
 git worktree list
 ```
 
 **Output:**
+
 ```
 /Users/dev/projects/myapp              abc123 [main]
 /Users/dev/projects/myapp-feature      def456 [feature/new-ui]
@@ -113,6 +121,7 @@ git worktree list --porcelain
 ```
 
 **Output:**
+
 ```
 worktree /Users/dev/projects/myapp
 HEAD abc123def456...
@@ -134,6 +143,7 @@ branch refs/heads/hotfix/critical
 ### `git worktree remove <path>` - Remove Worktree
 
 **Example:**
+
 ```bash
 # Remove worktree
 git worktree remove ../myapp-feature
@@ -187,6 +197,7 @@ git worktree prune --dry-run
 ### Scenario 1: Feature Development + Urgent Hotfix
 
 **Setup:**
+
 ```bash
 # Main project
 cd ~/projects/myapp
@@ -200,6 +211,7 @@ cd ../myapp-feature
 ```
 
 **Urgent bug reported!**
+
 ```bash
 # Create hotfix worktree (from original repo)
 cd ~/projects/myapp
@@ -297,6 +309,7 @@ make && ./app
 ### Scenario 5: Building Multiple Configurations
 
 **Your specific case:**
+
 ```bash
 # Main development
 cd ~/projects/philosophers
@@ -346,6 +359,7 @@ project-copy/
 ### When to Use Worktrees
 
 ✅ **Use worktrees for:**
+
 - Urgent interruptions (hotfixes while coding)
 - Parallel feature development
 - Code reviews
@@ -354,6 +368,7 @@ project-copy/
 - Comparing implementations
 
 ❌ **Don't use worktrees for:**
+
 - Simple branch switches (use `git checkout`)
 - Short-lived changes (use `git stash`)
 - Single task focus
@@ -394,11 +409,13 @@ git worktree add ../copy2 main  # ERROR!
 ```
 
 **Error:**
+
 ```
 fatal: 'main' is already checked out at '/path/to/myapp'
 ```
 
 **Solution:** Use different branches or create from commit:
+
 ```bash
 git worktree add ../copy2 -b temp-main main
 ```
@@ -410,6 +427,7 @@ git worktree add ../copy2 -b temp-main main
 All worktrees share the same `.git` directory (in main worktree).
 
 **Implications:**
+
 - Commits in any worktree affect the same repository
 - Branches are shared across all worktrees
 - Config is shared
@@ -503,6 +521,7 @@ git worktree add ../new -b feature/exists
 ```
 
 **Solutions:**
+
 ```bash
 # Solution 1: Use different branch name
 git worktree add ../new -b feature/exists-2
@@ -534,6 +553,7 @@ git worktree remove --force <path>
 ## Practice Exercises
 
 ### Exercise 1: Basic Worktree Workflow
+
 ```bash
 # Create worktree
 git worktree add ../myapp-feature -b feature/test
@@ -556,6 +576,7 @@ git branch -d feature/test
 ---
 
 ### Exercise 2: Parallel Development
+
 ```bash
 # Create two worktrees
 git worktree add ../app-feature1 -b feature/one
@@ -586,6 +607,7 @@ git worktree remove ../app-feature2
 ---
 
 ### Exercise 3: Hotfix Interrupt
+
 ```bash
 # Start feature work
 git worktree add ../app-feature -b feature/work
@@ -616,34 +638,34 @@ cd ../app-feature
 
 ### Worktree vs Stash
 
-| Aspect | Worktree | Stash |
-|--------|----------|-------|
-| **Duration** | Long-term | Temporary |
-| **Disk Space** | More | Less |
-| **Complexity** | Multiple dirs | Single dir |
-| **Best For** | Parallel work | Quick switches |
+| Aspect         | Worktree      | Stash          |
+| -------------- | ------------- | -------------- |
+| **Duration**   | Long-term     | Temporary      |
+| **Disk Space** | More          | Less           |
+| **Complexity** | Multiple dirs | Single dir     |
+| **Best For**   | Parallel work | Quick switches |
 
 ---
 
 ### Worktree vs Clone
 
-| Aspect | Worktree | Clone |
-|--------|----------|-------|
-| **Repository** | Shared | Separate |
-| **Disk Space** | 1x .git + n dirs | n full repos |
-| **Branches** | Shared | Independent |
-| **Best For** | Same project tasks | Different purposes |
+| Aspect         | Worktree           | Clone              |
+| -------------- | ------------------ | ------------------ |
+| **Repository** | Shared             | Separate           |
+| **Disk Space** | 1x .git + n dirs   | n full repos       |
+| **Branches**   | Shared             | Independent        |
+| **Best For**   | Same project tasks | Different purposes |
 
 ---
 
 ### Worktree vs Branch Switch
 
-| Aspect | Worktree | Branch Switch |
-|--------|----------|---------------|
-| **Speed** | Instant access | Switch time |
-| **Context** | Preserved | Lost |
-| **Disk Space** | More | Less |
-| **Best For** | Parallel tasks | Sequential tasks |
+| Aspect         | Worktree       | Branch Switch    |
+| -------------- | -------------- | ---------------- |
+| **Speed**      | Instant access | Switch time      |
+| **Context**    | Preserved      | Lost             |
+| **Disk Space** | More           | Less             |
+| **Best For**   | Parallel tasks | Sequential tasks |
 
 ---
 
@@ -675,6 +697,7 @@ git worktree unlock <path>                     # Allow removal
 ## Key Takeaways
 
 ✅ **Worktrees are perfect for:**
+
 - Working on multiple branches simultaneously
 - Urgent interruptions without losing context
 - Code reviews while continuing development
@@ -682,6 +705,7 @@ git worktree unlock <path>                     # Allow removal
 - Building multiple versions
 
 ⚠️ **Remember:**
+
 - Each worktree needs its own directory
 - All worktrees share the same Git repository
 - Can't check out the same branch twice
@@ -689,4 +713,4 @@ git worktree unlock <path>                     # Allow removal
 
 ---
 
-**Next:** [Stashing Changes](./06-stashing-changes.md)
+[Next](06_stashing_changes.md)

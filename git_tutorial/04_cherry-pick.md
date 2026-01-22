@@ -1,3 +1,5 @@
+[Back to Main](README.md) | [Previous](03_stages.md) | [Next](05_worktree.md)
+
 # Cherry-Pick Guide
 
 ## Overview
@@ -23,26 +25,31 @@ Cherry-pick creates a **new commit** (C') with the same changes as the original 
 ### ✅ Good Use Cases
 
 1. **Apply a bug fix to multiple branches**
+   
    ```
    Scenario: Fixed bug on main, need same fix on release branch
    ```
 
 2. **Pull a specific feature from another branch**
+   
    ```
    Scenario: Feature branch has 10 commits, only need commit #5
    ```
 
 3. **Recover from wrong branch**
+   
    ```
    Scenario: Committed on main instead of feature branch
    ```
 
 4. **Apply hotfix to older releases**
+   
    ```
    Scenario: Critical fix for v2.0 and v1.5
    ```
 
 5. **Undo an accidental revert**
+   
    ```
    Scenario: Revert was wrong, need to restore the commit
    ```
@@ -63,6 +70,7 @@ Cherry-pick creates a **new commit** (C') with the same changes as the original 
 ### `git cherry-pick <commit>` - Apply Single Commit
 
 **Example Setup:**
+
 ```bash
 # On feature branch, make some commits
 git checkout -b feature/api-v2
@@ -83,6 +91,7 @@ git log --oneline
 ```
 
 **Output:**
+
 ```
 a1b2c3d Add feature B
 e4f5g6h Fix bug in parser    ← We want this one
@@ -90,6 +99,7 @@ i7j8k9l Add feature A
 ```
 
 **Apply to main branch:**
+
 ```bash
 # Switch to main
 git checkout main
@@ -99,6 +109,7 @@ git cherry-pick e4f5g6h
 ```
 
 **Output:**
+
 ```
 [main m8n9o0p] Fix bug in parser
  Date: Sat Oct 25 10:30:00 2025
@@ -107,9 +118,11 @@ git cherry-pick e4f5g6h
 ```
 
 **Verify:**
+
 ```bash
 git log --oneline -3
 ```
+
 ```
 m8n9o0p Fix bug in parser    ← New commit with same changes
 p9q0r1s Previous commit
@@ -132,6 +145,7 @@ git cherry-pick abc123^..ghi789
 ```
 
 **Example:**
+
 ```bash
 # Apply commits C, D, and E
 git cherry-pick C D E
@@ -149,6 +163,7 @@ git cherry-pick C^..E
 When the changes in the cherry-picked commit conflict with your current branch.
 
 **Example:**
+
 ```bash
 # feature branch changed line 5
 # main branch also changed line 5 differently
@@ -160,12 +175,14 @@ When the changes in the cherry-picked commit conflict with your current branch.
 ### Resolving Conflicts
 
 **Example Scenario:**
+
 ```bash
 # Try to cherry-pick
 git cherry-pick abc123
 ```
 
 **Output:**
+
 ```
 error: could not apply abc123... Fix bug
 hint: after resolving the conflicts, mark the corrected paths
@@ -176,19 +193,22 @@ hint: and commit the result with 'git cherry-pick --continue'
 **Resolution Steps:**
 
 1. **Check conflict status**
-```bash
-git status
-```
-```
-You are currently cherry-picking commit abc123.
-  (fix conflicts and run "git cherry-pick --continue")
-  (use "git cherry-pick --abort" to cancel)
+   
+   ```bash
+   git status
+   ```
+   
+   ```
+   You are currently cherry-picking commit abc123.
+   (fix conflicts and run "git cherry-pick --continue")
+   (use "git cherry-pick --abort" to cancel)
+   ```
 
 Unmerged paths:
   (use "git add <file>..." to mark resolution)
         both modified:   src/main.c
-```
 
+```
 2. **Open conflicted file**
 ```c
 <<<<<<< HEAD
@@ -205,32 +225,38 @@ void function() {
 ```
 
 3. **Resolve conflict manually**
-```c
-// Choose one version or combine them
-void function() {
+   
+   ```c
+   // Choose one version or combine them
+   void function() {
     printf("Combined Version\n");
-}
-```
+   }
+   ```
 
 4. **Mark as resolved and continue**
-```bash
-# Stage resolved file
-git add src/main.c
+   
+   ```bash
+   # Stage resolved file
+   git add src/main.c
+   ```
 
 # Continue cherry-pick
-git cherry-pick --continue
-```
 
+git cherry-pick --continue
+
+```
 5. **Edit commit message if needed**
 ```
+
 Fix bug
 
 (cherry picked from commit abc123)
 
 # Conflicts resolved:
-#   - Combined changes from both versions
-```
 
+# - Combined changes from both versions
+
+```
 ---
 
 ### Cherry-Pick Options During Conflicts
@@ -246,6 +272,7 @@ git cherry-pick --continue
 ---
 
 #### `git cherry-pick --abort`
+
 Cancel the cherry-pick, return to state before cherry-pick.
 
 ```bash
@@ -254,6 +281,7 @@ git cherry-pick --abort
 ```
 
 **When to abort:**
+
 - Too many conflicts
 - Wrong commit chosen
 - Cherry-pick was a mistake
@@ -261,6 +289,7 @@ git cherry-pick --abort
 ---
 
 #### `git cherry-pick --skip`
+
 Skip the current commit (when cherry-picking multiple).
 
 ```bash
@@ -276,11 +305,13 @@ git cherry-pick --skip  # Skip B, continue with C
 ### `git cherry-pick -n` - No Commit (Staging Only)
 
 **When to use:**
+
 - Want to modify changes before committing
 - Combining multiple cherry-picks into one commit
 - Need to review changes first
 
 **Example:**
+
 ```bash
 # Cherry-pick without committing
 git cherry-pick -n abc123
@@ -290,6 +321,7 @@ git status
 ```
 
 **Output:**
+
 ```
 On branch main
 Changes to be committed:
@@ -298,6 +330,7 @@ Changes to be committed:
 ```
 
 **Use case - Combine multiple commits:**
+
 ```bash
 # Cherry-pick two commits as one
 git cherry-pick -n abc123
@@ -312,16 +345,19 @@ git commit -m "Combined fixes from commits abc123 and def456"
 ### `git cherry-pick -x` - Record Source Commit
 
 **When to use:**
+
 - Need traceability
 - Corporate/open source requirements
 - Backporting fixes
 
 **Example:**
+
 ```bash
 git cherry-pick -x abc123
 ```
 
 **Resulting commit message:**
+
 ```
 Fix critical bug
 
@@ -335,6 +371,7 @@ This helps track where the change originally came from.
 ### `git cherry-pick --edit` - Edit Commit Message
 
 **Example:**
+
 ```bash
 # Cherry-pick and edit message
 git cherry-pick --edit abc123
@@ -353,12 +390,14 @@ git cherry-pick --edit abc123
 # Merge commit has 2 parents
 git show abc123
 ```
+
 ```
 commit abc123 (merge commit)
 Merge: parent1 parent2
 ```
 
 **Specify which parent:**
+
 ```bash
 # Use parent 1 as mainline
 git cherry-pick -m 1 abc123
@@ -376,6 +415,7 @@ Usually `-m 1` is what you want (the branch you merged into).
 ### Scenario 1: Bug Fix to Multiple Branches
 
 **Setup:**
+
 ```
 main:      A---B---C---D (bug fix)
                 \
@@ -400,6 +440,7 @@ git push origin release-2.0
 ```
 
 **Result:**
+
 ```
 main:        A---B---C---D (original fix)
                   \
@@ -411,6 +452,7 @@ release-2.0:       E---F---G---D' (cherry-picked fix)
 ### Scenario 2: Committed to Wrong Branch
 
 **Setup:**
+
 ```bash
 # Oops, made commit on main instead of feature branch
 git checkout main
@@ -422,6 +464,7 @@ git log --oneline -1
 ```
 
 **Solution:**
+
 ```bash
 # Note the commit hash
 COMMIT_HASH=$(git rev-parse HEAD)
@@ -440,6 +483,7 @@ git log --oneline -1
 ```
 
 **Alternative with cherry-pick:**
+
 ```bash
 # Note commit hash first
 COMMIT_HASH=a1b2c3d
@@ -459,6 +503,7 @@ git cherry-pick $COMMIT_HASH
 ### Scenario 3: Extract Single Commit from Feature Branch
 
 **Setup:**
+
 ```
 feature/big-project:  A---B---C---D---E---F---G
                               ↑
@@ -484,6 +529,7 @@ git push -u origin feature/specific-fix
 ### Scenario 4: Hotfix to Multiple Versions
 
 **Setup:**
+
 ```
 v1.0:  A---B---C
 v2.0:  A---B---C---D---E---F
@@ -516,6 +562,7 @@ git push origin v1.0
 ### Scenario 5: Undo an Accidental Revert
 
 **Setup:**
+
 ```bash
 # Feature was merged
 git log --oneline
@@ -529,6 +576,7 @@ git revert a1b2c3d
 ```
 
 **Solution:**
+
 ```bash
 # Cherry-pick the original merge commit
 git cherry-pick a1b2c3d -m 1
@@ -633,14 +681,15 @@ git cherry-pick $(git log --oneline feature/other | fzf | cut -d' ' -f1)
 
 ### Cherry-Pick vs Merge
 
-| Aspect | Cherry-Pick | Merge |
-|--------|-------------|-------|
-| Use case | Specific commits | Entire branch |
-| History | Creates new commits | Preserves branch history |
-| Traceability | Less clear origin | Clear merge point |
-| Best for | Bug fixes, single features | Complete features |
+| Aspect       | Cherry-Pick                | Merge                    |
+| ------------ | -------------------------- | ------------------------ |
+| Use case     | Specific commits           | Entire branch            |
+| History      | Creates new commits        | Preserves branch history |
+| Traceability | Less clear origin          | Clear merge point        |
+| Best for     | Bug fixes, single features | Complete features        |
 
 **Example when to merge instead:**
+
 ```bash
 # Bad: Cherry-pick 20 commits
 git cherry-pick A B C D E F G H I J K L M N O P Q R S T
@@ -653,13 +702,14 @@ git merge feature/complete-work
 
 ### Cherry-Pick vs Rebase
 
-| Aspect | Cherry-Pick | Rebase |
-|--------|-------------|--------|
+| Aspect    | Cherry-Pick             | Rebase                    |
+| --------- | ----------------------- | ------------------------- |
 | Direction | Pull commits to current | Replay current onto other |
-| Use case | Specific commits | Entire branch update |
-| History | Duplicates commits | Rewrites history |
+| Use case  | Specific commits        | Entire branch update      |
+| History   | Duplicates commits      | Rewrites history          |
 
 **Example:**
+
 ```bash
 # Cherry-pick: Pull specific commit from main to feature
 git checkout feature/work
@@ -675,6 +725,7 @@ git rebase main  # All feature commits onto main
 ## Practice Exercises
 
 ### Exercise 1: Basic Cherry-Pick
+
 ```bash
 # Create two branches
 git checkout -b branch-a
@@ -693,6 +744,7 @@ git cherry-pick $COMMIT
 ---
 
 ### Exercise 2: Resolve Conflict
+
 ```bash
 # Create conflict
 git checkout -b branch-1
@@ -718,6 +770,7 @@ git cherry-pick --continue
 ---
 
 ### Exercise 3: Selective Cherry-Pick
+
 ```bash
 # Create branch with multiple commits
 git checkout -b multi-commit
@@ -738,12 +791,14 @@ git cherry-pick <hash-of-B>
 ## Common Mistakes
 
 ### ❌ Cherry-Picking Too Many Commits
+
 ```bash
 # Bad
 git cherry-pick A B C D E F G H I J
 ```
 
 ### ✅ Use Merge Instead
+
 ```bash
 # Good
 git merge feature/branch
@@ -752,12 +807,14 @@ git merge feature/branch
 ---
 
 ### ❌ Not Recording Source
+
 ```bash
 # Bad (for important fixes)
 git cherry-pick abc123
 ```
 
 ### ✅ Use -x Flag
+
 ```bash
 # Good
 git cherry-pick -x abc123
@@ -766,6 +823,7 @@ git cherry-pick -x abc123
 ---
 
 ### ❌ Cherry-Picking on Shared Branches
+
 Creates duplicate commits that confuse history.
 
 ### ✅ Cherry-Pick Only on Local/Personal Branches
@@ -799,4 +857,4 @@ git cherry-pick -X ours <commit>    # Favor our changes
 
 ---
 
-**Next:** [Git Worktree](./05-git-worktree.md)
+[Next](05_worktree.md)

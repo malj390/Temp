@@ -1,3 +1,5 @@
+[Back to Main](README.md) | [Previous](01_basic.md) | [Next](03_stages.md)
+
 # Branch Management
 
 ## Overview
@@ -26,11 +28,13 @@ feature:          D---E
 Create a branch from a specific commit, tag, or another branch.
 
 **When to use:**
+
 - Need to branch from older commit
 - Creating hotfix from production
 - Branching from another feature
 
 **Example:**
+
 ```bash
 # Branch from specific commit
 git checkout -b hotfix/bug-123 a1b2c3d
@@ -52,11 +56,13 @@ git log --oneline -5
 ### `git checkout <branch>` - Switch Branch
 
 **When to use:**
+
 - Moving between existing branches
 - Reviewing other people's work
 - Testing different features
 
 **Example:**
+
 ```bash
 # Switch to existing branch
 git checkout main
@@ -69,6 +75,7 @@ git branch
 ```
 
 **Output:**
+
 ```
   main
 * feature/user-profile
@@ -83,6 +90,7 @@ git branch
 Clearer alternative to `checkout` for switching branches.
 
 **Example:**
+
 ```bash
 # Switch to branch
 git switch main
@@ -92,6 +100,7 @@ git switch feature/dashboard
 ```
 
 **Advantages over `checkout`:**
+
 - Only for switching branches (not files)
 - Clearer intent
 - Safer (won't accidentally checkout files)
@@ -103,6 +112,7 @@ git switch feature/dashboard
 **Scenario:** You have uncommitted work and need to switch branches.
 
 #### Option 1: Commit the changes
+
 ```bash
 git add .
 git commit -m "WIP: work in progress"
@@ -110,6 +120,7 @@ git switch other-branch
 ```
 
 #### Option 2: Stash the changes (recommended for temporary switch)
+
 ```bash
 # Save changes temporarily
 git stash
@@ -123,6 +134,7 @@ git stash pop
 ```
 
 #### Option 3: Carry changes (if no conflicts)
+
 ```bash
 # Git will bring your changes along
 git switch other-branch
@@ -136,11 +148,13 @@ git switch other-branch
 ### `git branch` - List Local Branches
 
 **Example:**
+
 ```bash
 git branch
 ```
 
 **Output:**
+
 ```
   feature/api-v2
   feature/dashboard
@@ -154,16 +168,19 @@ The `*` indicates your current branch.
 ### `git branch -a` - List All Branches (Local + Remote)
 
 **When to use:**
+
 - See what branches exist remotely
 - Check if your branch is pushed
 - Review team's branches
 
 **Example:**
+
 ```bash
 git branch -a
 ```
 
 **Output:**
+
 ```
 * main
   feature/dashboard
@@ -177,11 +194,13 @@ git branch -a
 ### `git branch -r` - List Remote Branches Only
 
 **Example:**
+
 ```bash
 git branch -r
 ```
 
 **Output:**
+
 ```
   origin/main
   origin/feature/api-v2
@@ -193,16 +212,19 @@ git branch -r
 ### `git branch -v` - List with Last Commit
 
 **When to use:**
+
 - See what's on each branch
 - Quick status check
 - Compare branch progress
 
 **Example:**
+
 ```bash
 git branch -v
 ```
 
 **Output:**
+
 ```
   feature/api-v2    a1b2c3d Add API endpoints
   feature/dashboard e4f5g6h Update UI components
@@ -214,16 +236,19 @@ git branch -v
 ### `git branch -vv` - Show Tracking Information
 
 **When to use:**
+
 - Check which remote branch is tracked
 - See if branch is ahead/behind
 - Verify upstream configuration
 
 **Example:**
+
 ```bash
 git branch -vv
 ```
 
 **Output:**
+
 ```
 * main              h7i8j9k [origin/main] Merge pull request
   feature/api-v2    a1b2c3d [origin/feature/api-v2: ahead 2] Add endpoints
@@ -231,6 +256,7 @@ git branch -vv
 ```
 
 Interpretation:
+
 - `[origin/main]` - tracking origin/main, in sync
 - `[origin/feature/api-v2: ahead 2]` - 2 commits ahead of remote
 - No brackets - not tracking any remote branch
@@ -242,11 +268,13 @@ Interpretation:
 ### `git branch -d <branch>` - Safe Delete (Merged Only)
 
 **When to use:**
+
 - Branch has been merged
 - Feature is complete and integrated
 - Cleaning up after pull request merge
 
 **Example:**
+
 ```bash
 # Switch away from the branch first
 git checkout main
@@ -256,14 +284,17 @@ git branch -d feature/completed-feature
 ```
 
 **Output:**
+
 ```
 Deleted branch feature/completed-feature (was a1b2c3d).
 ```
 
 **Safety:** Git will prevent deletion if branch isn't merged:
+
 ```bash
 git branch -d feature/unmerged-work
 ```
+
 ```
 error: The branch 'feature/unmerged-work' is not fully merged.
 If you are sure you want to delete it, run 'git branch -D feature/unmerged-work'.
@@ -274,6 +305,7 @@ If you are sure you want to delete it, run 'git branch -D feature/unmerged-work'
 ### `git branch -D <branch>` - Force Delete
 
 **When to use:**
+
 - Experimental branch you don't need
 - Failed approach you're abandoning
 - Branch you know you don't want to merge
@@ -281,12 +313,14 @@ If you are sure you want to delete it, run 'git branch -D feature/unmerged-work'
 **⚠️ Warning:** This will delete the branch even if not merged. Make sure you really want to lose that work!
 
 **Example:**
+
 ```bash
 # Force delete unmerged branch
 git branch -D experiment/failed-approach
 ```
 
 **Output:**
+
 ```
 Deleted branch experiment/failed-approach (was e4f5g6h).
 ```
@@ -298,11 +332,13 @@ Deleted branch experiment/failed-approach (was e4f5g6h).
 #### `git push origin --delete <branch>` - Delete Remote Branch
 
 **When to use:**
+
 - Feature merged via pull request
 - Cleaning up old branches on GitHub/GitLab
 - Branch no longer needed by team
 
 **Example:**
+
 ```bash
 # Delete remote branch
 git push origin --delete feature/old-feature
@@ -312,12 +348,14 @@ git push origin :feature/old-feature
 ```
 
 **Output:**
+
 ```
 To github.com:user/repo.git
  - [deleted]         feature/old-feature
 ```
 
 **Complete cleanup workflow:**
+
 ```bash
 # 1. Delete local branch
 git branch -d feature/completed
@@ -344,10 +382,12 @@ git config --global fetch.prune true
 ```
 
 **Example:**
+
 ```bash
 # Before prune
 git branch -r
 ```
+
 ```
   origin/main
   origin/feature/deleted-remotely  ← stale reference
@@ -358,6 +398,7 @@ git branch -r
 git fetch --prune
 git branch -r
 ```
+
 ```
   origin/main
 ```
@@ -369,6 +410,7 @@ git branch -r
 ### `git branch -m <new-name>` - Rename Current Branch
 
 **Example:**
+
 ```bash
 # While on the branch to rename
 git checkout feature/old-name
@@ -383,6 +425,7 @@ git branch
 ### `git branch -m <old> <new>` - Rename Any Branch
 
 **Example:**
+
 ```bash
 # Rename without switching to it
 git branch -m feature/typo feature/correct-name
@@ -393,6 +436,7 @@ git branch -m feature/typo feature/correct-name
 ### Renaming and Updating Remote
 
 **Complete workflow:**
+
 ```bash
 # 1. Rename local branch
 git branch -m old-name new-name
@@ -425,11 +469,13 @@ Remote:    origin/main  origin/feature/api
 ### Setting Up Tracking
 
 #### Automatic (when pushing with -u)
+
 ```bash
 git push -u origin feature/new-feature
 ```
 
 #### Manual tracking setup
+
 ```bash
 # Set existing branch to track remote
 git branch --set-upstream-to=origin/feature/api feature/api
@@ -448,6 +494,7 @@ git branch -vv
 ```
 
 **Output:**
+
 ```
 * main              a1b2c3d [origin/main] Latest commit
   feature/api       e4f5g6h [origin/feature/api: ahead 3] Add endpoints
@@ -455,6 +502,7 @@ git branch -vv
 ```
 
 Interpretation:
+
 - `main` - in sync with `origin/main`
 - `feature/api` - 3 commits ahead of `origin/feature/api`
 - `experiment/test` - not tracking any remote branch
@@ -504,6 +552,7 @@ git log --left-right --oneline main...origin/main
 ### Common Patterns
 
 #### By Type
+
 ```
 feature/user-authentication
 feature/payment-integration
@@ -522,12 +571,14 @@ release/v2.1.0
 ```
 
 #### By Developer
+
 ```
 dev/john/api-refactor
 dev/sarah/ui-update
 ```
 
 #### By Issue/Ticket
+
 ```
 issue-123/fix-login
 GH-456/add-feature
@@ -539,6 +590,7 @@ JIRA-789/update-docs
 ### Best Practices
 
 ✅ **Do:**
+
 - Use lowercase
 - Use hyphens, not spaces or underscores
 - Be descriptive
@@ -546,12 +598,14 @@ JIRA-789/update-docs
 - Keep reasonably short
 
 ❌ **Don't:**
+
 - Use spaces: `feature new ui` ❌
 - Be vague: `fix` or `update` ❌
 - Use special characters: `feature/new@ui` ❌
 - Make too long: `feature/add-the-new-user-authentication-system-with-oauth` ❌
 
 **Good Examples:**
+
 ```
 feature/oauth-integration
 bugfix/null-pointer-login
@@ -648,6 +702,7 @@ git branch -D experiment/new-approach
 ## Practice Exercises
 
 ### Exercise 1: Complete Branch Lifecycle
+
 ```bash
 # Create feature branch
 git checkout -b feature/user-settings
@@ -672,6 +727,7 @@ git push origin --delete feature/user-settings
 ---
 
 ### Exercise 2: Working with Remote Branches
+
 ```bash
 # Fetch all remote branches
 git fetch origin
@@ -687,9 +743,8 @@ git commit -am "Add my changes"
 git push
 ```
 
----
-
 ### Exercise 3: Branch Comparison
+
 ```bash
 # Create two branches
 git checkout -b version-a
@@ -798,16 +853,18 @@ git fetch --prune               # Remove stale references
 
 ---
 
-**Next:** [Working with Stages](./03-working-with-stages.md) `git branch <name>` - Create Branch
+`git branch <name>` - Create Branch
 
 Creates a new branch but **doesn't switch to it**.
 
 **When to use:**
+
 - Want to create branch for later
 - Planning multiple branches
 - Creating backup branch
 
 **Example:**
+
 ```bash
 # Create new branch
 git branch feature/new-login
@@ -820,6 +877,7 @@ git status
 ```
 
 **Output:**
+
 ```
   feature/new-login
 * main
@@ -832,11 +890,13 @@ git status
 Creates a new branch **and switches to it** immediately.
 
 **When to use:**
+
 - Most common scenario
 - Starting new feature right away
 - Quick branch creation
 
 **Example:**
+
 ```bash
 # Create and switch in one command
 git checkout -b feature/user-profile
@@ -846,6 +906,7 @@ git branch
 ```
 
 **Output:**
+
 ```
 * feature/user-profile
   main
@@ -858,11 +919,13 @@ git branch
 Newer, clearer syntax introduced in Git 2.23.
 
 **When to use:**
+
 - Prefer modern, explicit commands
 - Avoiding confusion with `checkout`
 - Same as `checkout -b` but clearer
 
 **Example:**
+
 ```bash
 # Modern syntax
 git switch -c feature/dashboard
@@ -873,4 +936,4 @@ git branch
 
 ---
 
-###
+[Next](03_stages.md)

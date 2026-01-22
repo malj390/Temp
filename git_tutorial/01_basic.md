@@ -1,3 +1,5 @@
+[Back to Main](README.md) | [Previous](00_set_up.md) | [Next](02_branch.md)
+
 # Basic Git Operations
 
 ## Overview
@@ -26,11 +28,13 @@ Working Directory → Staging Area → Local Repository → Remote Repository
 #### `git add .` - Stage All Changes
 
 **When to use:**
+
 - Starting a new feature and all changes are related
 - Making consistent changes across multiple files
 - Quick commits during active development
 
 **Example:**
+
 ```bash
 # Make changes to multiple files
 echo "// New feature" >> src/main.c
@@ -48,6 +52,7 @@ git status
 ```
 
 **Output:**
+
 ```
 On branch main
 Changes to be committed:
@@ -62,6 +67,7 @@ Changes to be committed:
 #### `git add <file>` - Stage Specific Files
 
 **When to use:**
+
 - Changes belong to different logical commits
 - Want to commit related changes separately
 - Need to exclude certain modifications
@@ -83,6 +89,7 @@ git status
 ```
 
 **Output:**
+
 ```
 On branch main
 Changes to be committed:
@@ -100,11 +107,13 @@ Changes not staged for commit:
 #### `git add <directory>/` - Stage Directory
 
 **When to use:**
+
 - Changes in one module/folder are related
 - Refactoring a specific component
 - Adding multiple new files in a directory
 
 **Example:**
+
 ```bash
 # Add multiple files to src directory
 echo "// File 1" > src/module1.c
@@ -122,11 +131,13 @@ git status
 #### `git add -p` - Interactive Staging (Patch Mode)
 
 **When to use:**
+
 - File has multiple unrelated changes
 - Want to commit parts of a file separately
 - Need surgical precision in commits
 
 **Example:**
+
 ```bash
 # Make multiple changes to one file
 cat >> src/main.c << 'EOF'
@@ -143,6 +154,7 @@ git add -p src/main.c
 ```
 
 **Interactive prompts:**
+
 ```
 Stage this hunk [y,n,q,a,d,s,e,?]?
 y - yes, stage this hunk
@@ -155,13 +167,13 @@ q - quit
 
 ### Comparison Table: git add Strategies
 
-| Command | Use Case | Example Scenario |
-|---------|----------|------------------|
-| `git add .` | All related changes | Implementing complete feature |
-| `git add file.c` | Specific file changes | Bug fix in one file |
-| `git add src/` | Directory changes | Refactoring module |
-| `git add -p` | Partial file changes | Mixed bug fix + feature in same file |
-| `git add *.c` | Pattern matching | Stage all C files |
+| Command          | Use Case              | Example Scenario                     |
+| ---------------- | --------------------- | ------------------------------------ |
+| `git add .`      | All related changes   | Implementing complete feature        |
+| `git add file.c` | Specific file changes | Bug fix in one file                  |
+| `git add src/`   | Directory changes     | Refactoring module                   |
+| `git add -p`     | Partial file changes  | Mixed bug fix + feature in same file |
+| `git add *.c`    | Pattern matching      | Stage all C files                    |
 
 ---
 
@@ -176,11 +188,13 @@ q - quit
 #### `git commit -m "message"` - Quick Commit
 
 **When to use:**
+
 - Simple, straightforward changes
 - Message fits in one line
 - Quick iterations during development
 
 **Example:**
+
 ```bash
 # Stage changes
 git add src/main.c
@@ -190,12 +204,14 @@ git commit -m "Fix null pointer dereference in main"
 ```
 
 **Best Practices for Messages:**
+
 - Start with verb (Add, Fix, Update, Remove)
 - Be specific and concise
 - 50 characters or less
 - Present tense
 
 **Examples:**
+
 ```bash
 git commit -m "Add user authentication module"
 git commit -m "Fix memory leak in parser"
@@ -208,12 +224,14 @@ git commit -m "Remove deprecated function calls"
 #### `git commit` - Editor Commit (Multi-line)
 
 **When to use:**
+
 - Complex changes needing explanation
 - Need to describe "why" not just "what"
 - Following team commit conventions
 - Changes affect multiple areas
 
 **Example:**
+
 ```bash
 # Stage changes
 git add .
@@ -223,6 +241,7 @@ git commit
 ```
 
 **Editor opens with template:**
+
 ```
 Subject line (50 chars or less)
 
@@ -237,6 +256,7 @@ Fixes #123
 ```
 
 **Real Example:**
+
 ```
 Add caching layer to database queries
 
@@ -260,6 +280,7 @@ Fixes #234
 #### `git commit -a` - Auto-stage and Commit
 
 **When to use:**
+
 - Only modified tracked files (no new files)
 - Quick commits during development
 - Trust all changes are related
@@ -267,6 +288,7 @@ Fixes #234
 **⚠️ Warning:** Does NOT stage new (untracked) files!
 
 **Example:**
+
 ```bash
 # Modify existing files (don't create new ones)
 echo "// Update" >> src/main.c
@@ -280,6 +302,7 @@ git commit -am "Update error handling"
 ```
 
 **What it does:**
+
 ```bash
 # Equivalent to:
 git add -u  # stages modified tracked files only
@@ -291,12 +314,14 @@ git commit -m "message"
 #### `git commit --amend` - Modify Last Commit
 
 **When to use:**
+
 - Forgot to include a file
 - Typo in commit message
 - Small fix to last commit
 - **Before pushing to remote**
 
 **Example:**
+
 ```bash
 # Made a commit
 git commit -m "Add feature"
@@ -318,6 +343,7 @@ git commit --amend -m "Add feature with tests"
 ### Commit Message Guidelines
 
 #### Structure
+
 ```
 <type>: <subject>
 
@@ -327,6 +353,7 @@ git commit --amend -m "Add feature with tests"
 ```
 
 #### Types
+
 - `feat`: New feature
 - `fix`: Bug fix
 - `docs`: Documentation only
@@ -336,6 +363,7 @@ git commit --amend -m "Add feature with tests"
 - `chore`: Maintenance tasks
 
 #### Examples
+
 ```bash
 git commit -m "feat: add user login endpoint"
 git commit -m "fix: resolve race condition in auth"
@@ -347,12 +375,12 @@ git commit -m "refactor: simplify database connection logic"
 
 ### Comparison: Commit Strategies
 
-| Command | Stages New Files | Use Case |
-|---------|------------------|----------|
-| `git commit -m "msg"` | No (requires git add) | Controlled, explicit commits |
-| `git commit -a -m "msg"` | No | Quick commits, modified files only |
-| `git commit` | No (requires git add) | Detailed, multi-line messages |
-| `git commit --amend` | N/A | Fix last commit |
+| Command                  | Stages New Files      | Use Case                           |
+| ------------------------ | --------------------- | ---------------------------------- |
+| `git commit -m "msg"`    | No (requires git add) | Controlled, explicit commits       |
+| `git commit -a -m "msg"` | No                    | Quick commits, modified files only |
+| `git commit`             | No (requires git add) | Detailed, multi-line messages      |
+| `git commit --amend`     | N/A                   | Fix last commit                    |
 
 ---
 
@@ -367,11 +395,13 @@ git commit -m "refactor: simplify database connection logic"
 #### `git push` - Push Current Branch
 
 **When to use:**
+
 - Branch tracking is set up
 - Regular sync during development
 - After completing a feature
 
 **Example:**
+
 ```bash
 # Make commits locally
 git commit -m "Add feature"
@@ -381,6 +411,7 @@ git push
 ```
 
 **Expected Output:**
+
 ```
 Enumerating objects: 5, done.
 Counting objects: 100% (5/5), done.
@@ -395,11 +426,13 @@ To github.com:user/repo.git
 #### `git push origin <branch>` - Push Specific Branch
 
 **When to use:**
+
 - First time pushing a new branch
 - Pushing to non-default branch
 - Being explicit about destination
 
 **Example:**
+
 ```bash
 # Create and switch to new branch
 git checkout -b feature/new-ui
@@ -417,11 +450,13 @@ git push origin feature/new-ui
 #### `git push -u origin <branch>` - Set Upstream
 
 **When to use:**
+
 - First push of a new branch
 - Want simple `git push` in future
 - Setting up tracking relationship
 
 **Example:**
+
 ```bash
 # Create new branch
 git checkout -b feature/api-v2
@@ -436,6 +471,7 @@ git push -u origin feature/api-v2
 ```
 
 **What -u does:**
+
 - Creates remote branch if it doesn't exist
 - Sets up tracking (local branch → remote branch)
 - Enables simple `git push` and `git pull`
@@ -445,11 +481,13 @@ git push -u origin feature/api-v2
 #### `git push --force` - Overwrite Remote (⚠️ Dangerous)
 
 **When to use:**
+
 - After rewriting history (rebase, amend)
 - Only on branches you own
 - **NEVER on shared/main branches**
 
 **Example:**
+
 ```bash
 # You amended a commit that was already pushed
 git commit --amend -m "Better message"
@@ -480,11 +518,13 @@ git push --force-with-lease
 #### `git pull` - Standard Pull
 
 **When to use:**
+
 - Getting latest changes from team
 - Before starting new work
 - Regular sync with main branch
 
 **Example:**
+
 ```bash
 # Pull latest changes
 git pull
@@ -494,6 +534,7 @@ git pull origin main
 ```
 
 **Output:**
+
 ```
 remote: Enumerating objects: 5, done.
 remote: Counting objects: 100% (5/5), done.
@@ -508,17 +549,20 @@ Fast-forward
 #### `git pull --rebase` - Pull with Rebase
 
 **When to use:**
+
 - Want clean, linear history
 - Avoid merge commits
 - Working on feature branch
 
 **Example:**
+
 ```bash
 # Pull and rebase your commits on top
 git pull --rebase origin main
 ```
 
 **Difference:**
+
 ```
 # Regular git pull creates merge commit:
 A---B---C (origin/main)
@@ -540,11 +584,13 @@ A---B---C---D'---E' (your commits rebased)
 #### `git fetch` - Get Remote Changes
 
 **When to use:**
+
 - Want to see what changed before merging
 - Checking for updates
 - Safer than git pull
 
 **Example:**
+
 ```bash
 # Fetch all branches from remote
 git fetch origin
@@ -563,10 +609,10 @@ git merge origin/main
 
 ### Git Pull vs Git Fetch
 
-| Command | Downloads | Merges | Safe | Use Case |
-|---------|-----------|--------|------|----------|
-| `git fetch` | ✅ | ❌ | ✅ | Review before merging |
-| `git pull` | ✅ | ✅ | ⚠️ | Quick sync, trust changes |
+| Command     | Downloads | Merges | Safe | Use Case                  |
+| ----------- | --------- | ------ | ---- | ------------------------- |
+| `git fetch` | ✅         | ❌      | ✅    | Review before merging     |
+| `git pull`  | ✅         | ✅      | ⚠️   | Quick sync, trust changes |
 
 ---
 
@@ -671,6 +717,7 @@ git push
 ## Practice Exercises
 
 ### Exercise 1: Selective Staging
+
 ```bash
 # Make changes to 3 files
 echo "change1" >> src/main.c
@@ -689,6 +736,7 @@ git commit -m "Update documentation"
 ```
 
 ### Exercise 2: Amend Practice
+
 ```bash
 # Make a commit
 git add file1.c
@@ -703,6 +751,7 @@ git show
 ```
 
 ### Exercise 3: Pull vs Fetch
+
 ```bash
 # Fetch to see what's new
 git fetch origin
@@ -719,6 +768,7 @@ git merge origin/main
 ## Common Pitfalls
 
 ### ❌ Using `git add .` Without Checking
+
 ```bash
 # Bad
 git add .
@@ -726,6 +776,7 @@ git commit -m "Update"
 ```
 
 ### ✅ Always Check First
+
 ```bash
 # Good
 git status
@@ -738,6 +789,7 @@ git commit -m "descriptive message"
 ---
 
 ### ❌ Vague Commit Messages
+
 ```bash
 git commit -m "fix"
 git commit -m "updates"
@@ -745,6 +797,7 @@ git commit -m "changes"
 ```
 
 ### ✅ Descriptive Messages
+
 ```bash
 git commit -m "fix: resolve memory leak in parser"
 git commit -m "feat: add user profile page"
@@ -778,4 +831,4 @@ git fetch                   # Download without merging
 
 ---
 
-**Next:** [Branch Management](./02-branch-management.md)
+[Next](02_branch.md)

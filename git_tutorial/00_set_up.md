@@ -1,3 +1,5 @@
+[Back to Main](README.md) | [Next](01_basic.md)
+
 # Setup Test Environment
 
 ## Purpose
@@ -10,7 +12,7 @@ Create a safe, isolated Git repository where you can practice all Git commands w
 
 ```bash
 # Navigate to where you want to create your test repo
-cd ~/Desktop  # or any location you prefer
+cd ~\/Desktop  # or any location you prefer
 
 # Create and enter the test directory
 mkdir git-practice
@@ -25,6 +27,7 @@ git config user.email "your.email@example.com"
 ```
 
 **Expected Output:**
+
 ```
 Initialized empty Git repository in /Users/yourname/Desktop/git-practice/.git/
 ```
@@ -40,7 +43,7 @@ Create a realistic project structure to practice with:
 mkdir src includes data docs
 
 # Create dummy source files
-cat > src/main.c << 'EOF'
+cat > src\/main.c << 'EOF'
 #include <stdio.h>
 
 int main(void) {
@@ -49,7 +52,7 @@ int main(void) {
 }
 EOF
 
-cat > src/utils.c << 'EOF'
+cat > src\/utils.c << 'EOF'
 #include "utils.h"
 
 void print_message(char *msg) {
@@ -58,7 +61,7 @@ void print_message(char *msg) {
 EOF
 
 # Create header files
-cat > includes/utils.h << 'EOF'
+cat > includes\/utils.h << 'EOF'
 #ifndef UTILS_H
 #define UTILS_H
 
@@ -68,11 +71,11 @@ void print_message(char *msg);
 EOF
 
 # Create data files
-echo "user1,active,2024-01-15" > data/users.csv
-echo "user2,inactive,2024-02-20" >> data/users.csv
+echo "user1,active,2024-01-15" > data\/users.csv
+echo "user2,inactive,2024-02-20" >> data\/users.csv
 
 # Create documentation
-cat > docs/README.md << 'EOF'
+cat > docs\/README.md << 'EOF'
 # Project Documentation
 
 This is a test project for learning Git.
@@ -109,6 +112,7 @@ find . -type f | grep -v ".git"
 ```
 
 **Expected Structure:**
+
 ```
 .
 ├── .gitignore
@@ -143,6 +147,7 @@ git log --oneline
 ```
 
 **Expected Output:**
+
 ```
 [main (root-commit) a1b2c3d] Initial commit: project structure
  7 files changed, 35 insertions(+)
@@ -164,7 +169,7 @@ If you want to practice remote operations:
 
 ```bash
 # Add remote
-git remote add origin https://github.com/yourusername/git-practice.git
+git remote add origin https:\/\/github.com\/yourusername\/git-practice.git
 
 # Push to remote
 git push -u origin main
@@ -174,12 +179,12 @@ git push -u origin main
 
 ```bash
 # Create a bare repository to simulate a remote
-cd ~/Desktop
+cd ~\/Desktop
 git init --bare git-practice-remote.git
 
 # Add as remote in your working repository
-cd ~/Desktop/git-practice
-git remote add origin ~/Desktop/git-practice-remote.git
+cd ~\/Desktop\/git-practice
+git remote add origin ~\/Desktop\/git-practice-remote.git
 
 # Push to "remote"
 git push -u origin main
@@ -193,10 +198,10 @@ Add more files for practicing different scenarios:
 
 ```bash
 # Create a feature branch with some files
-git checkout -b feature/add-logging
+git checkout -b feature\/add-logging
 
 # Add a log file
-cat > src/logger.c << 'EOF'
+cat > src\/logger.c << 'EOF'
 #include <stdio.h>
 #include <time.h>
 
@@ -207,17 +212,17 @@ void log_message(char *msg) {
 EOF
 
 # Commit this
-git add src/logger.c
+git add src\/logger.c
 git commit -m "Add logger functionality"
 
 # Go back to main
 git checkout main
 
 # Create another branch
-git checkout -b feature/add-tests
+git checkout -b feature\/add-tests
 
 # Add test file
-cat > src/test.c << 'EOF'
+cat > src\/test.c << 'EOF'
 #include <assert.h>
 
 void test_utils() {
@@ -226,7 +231,7 @@ void test_utils() {
 }
 EOF
 
-git add src/test.c
+git add src\/test.c
 git commit -m "Add test suite"
 
 # Return to main
@@ -249,6 +254,7 @@ git log --all --graph --oneline --decorate
 ```
 
 **Expected Output:**
+
 ```
 * a1b2c3d (HEAD -> main) Initial commit: project structure
 | * b2c3d4e (feature/add-tests) Add test suite
@@ -288,11 +294,13 @@ rm -rf git-practice-remote.git  # if you created it
 You're now ready to proceed with the tutorials:
 
 **Next Steps:**
+
 - [Basic Git Operations](./01-basic-git-operations.md) - Learn fundamental commands
 - [Branch Management](./02-branch-management.md) - Work with branches
 - [Working with Stages](./03-working-with-stages.md) - Master the staging area
 
 **Quick Practice Ideas:**
+
 1. Modify a file and practice staging
 2. Create new branches
 3. Switch between branches
@@ -309,3 +317,5 @@ You're now ready to proceed with the tutorials:
 - **Create snapshots** - commit your state before trying risky operations
 
 Happy learning! 🎓
+
+[Next](01_basic.md)

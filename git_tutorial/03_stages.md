@@ -1,3 +1,5 @@
+[Back to Main](README.md) | [Previous](02_branch.md) | [Next](04_cherry-pick.md)
+
 # Working with Stages
 
 ## Overview
@@ -22,6 +24,7 @@ Working Directory  →  Staging Area (Index)  →  Repository
 The staging area lets you **craft precise commits** by selecting exactly which changes to include.
 
 **Why it matters:**
+
 - Create atomic commits (one logical change per commit)
 - Review changes before committing
 - Exclude work-in-progress files
@@ -34,6 +37,7 @@ The staging area lets you **craft precise commits** by selecting exactly which c
 ### `git add <file>` - Stage Specific Files
 
 **Example:**
+
 ```bash
 # Modify multiple files
 echo "fix" >> src/bug.c
@@ -48,6 +52,7 @@ git status
 ```
 
 **Output:**
+
 ```
 Changes to be committed:
   modified:   src/bug.c
@@ -61,13 +66,14 @@ Changes not staged for commit:
 
 ### `git add .` vs `git add -A` vs `git add -u`
 
-| Command | New Files | Modified | Deleted | Scope |
-|---------|-----------|----------|---------|-------|
-| `git add .` | ✅ | ✅ | ✅ | Current directory down |
-| `git add -A` | ✅ | ✅ | ✅ | Entire repository |
-| `git add -u` | ❌ | ✅ | ✅ | Entire repository |
+| Command      | New Files | Modified | Deleted | Scope                  |
+| ------------ | --------- | -------- | ------- | ---------------------- |
+| `git add .`  | ✅         | ✅        | ✅       | Current directory down |
+| `git add -A` | ✅         | ✅        | ✅       | Entire repository      |
+| `git add -u` | ❌         | ✅        | ✅       | Entire repository      |
 
 **Examples:**
+
 ```bash
 # Stage all changes in current directory and subdirectories
 git add .
@@ -80,6 +86,7 @@ git add -u
 ```
 
 **Use cases:**
+
 - `git add .` - Most common, stage everything here
 - `git add -A` - Ensure you catch everything repo-wide
 - `git add -u` - Update tracked files only, ignore new files
@@ -89,11 +96,13 @@ git add -u
 ### `git add -p` - Interactive Patch Mode
 
 **When to use:**
+
 - File has multiple unrelated changes
 - Want to split changes into separate commits
 - Need surgical precision
 
 **Example:**
+
 ```bash
 # File with bug fix and new feature mixed
 cat >> src/main.c << 'EOF'
@@ -114,6 +123,7 @@ git add -p src/main.c
 ```
 
 **Interactive prompts:**
+
 ```
 Stage this hunk [y,n,q,a,d,s,e,?]?
 
@@ -128,6 +138,7 @@ e - manually edit the hunk
 ```
 
 **Workflow:**
+
 ```bash
 git add -p src/main.c
 # Select 'y' for bug fix hunk
@@ -147,11 +158,13 @@ git commit -m "feat: add dashboard"
 Full interactive menu for staging operations.
 
 **Example:**
+
 ```bash
 git add -i
 ```
 
 **Menu:**
+
 ```
 *** Commands ***
   1: status       2: update       3: revert       4: add untracked
@@ -172,11 +185,13 @@ What now>
 ### `git status` - Overview
 
 **Example:**
+
 ```bash
 git status
 ```
 
 **Output:**
+
 ```
 On branch feature/new-ui
 Changes to be committed:
@@ -210,6 +225,7 @@ git diff src/main.c
 ### `git diff --staged` - Compare Staged vs Repository
 
 **When to use:**
+
 - Review what you're about to commit
 - Double-check staged changes
 - Before running `git commit`
@@ -226,6 +242,7 @@ git diff --staged src/main.c
 ```
 
 **Best practice workflow:**
+
 ```bash
 # 1. Make changes
 # ... edit files ...
@@ -247,11 +264,13 @@ git commit -m "feat: add new feature"
 Compact view of changes.
 
 **Example:**
+
 ```bash
 git status -s
 ```
 
 **Output:**
+
 ```
 M  src/main.c      # Modified and staged
  M src/utils.c     # Modified but not staged
@@ -261,6 +280,7 @@ MM src/complex.c   # Modified, staged, then modified again
 ```
 
 **Legend:**
+
 - First column: staging area status
 - Second column: working directory status
 - `M` = modified
@@ -276,11 +296,13 @@ MM src/complex.c   # Modified, staged, then modified again
 ### `git restore --staged <file>` - Unstage File (Modern)
 
 **When to use:**
+
 - Staged wrong file
 - Want to modify before committing
 - Split into multiple commits
 
 **Example:**
+
 ```bash
 # Stage files
 git add file1.c file2.c file3.c
@@ -293,6 +315,7 @@ git status
 ```
 
 **Output:**
+
 ```
 Changes to be committed:
         modified:   file1.c
@@ -309,6 +332,7 @@ Changes not staged for commit:
 Older syntax, still widely used.
 
 **Example:**
+
 ```bash
 # Unstage file
 git reset HEAD src/main.c
@@ -323,11 +347,11 @@ git reset HEAD
 
 ### Comparison: Unstaging Commands
 
-| Command | Effect | Notes |
-|---------|--------|-------|
-| `git restore --staged <file>` | Unstage file | Modern, recommended |
-| `git reset HEAD <file>` | Unstage file | Traditional, still common |
-| `git reset` | Unstage all | Shorthand for all files |
+| Command                       | Effect       | Notes                     |
+| ----------------------------- | ------------ | ------------------------- |
+| `git restore --staged <file>` | Unstage file | Modern, recommended       |
+| `git reset HEAD <file>`       | Unstage file | Traditional, still common |
+| `git reset`                   | Unstage all  | Shorthand for all files   |
 
 ---
 
@@ -336,6 +360,7 @@ git reset HEAD
 ### Scenario: Staged File, Then Made More Changes
 
 **Example:**
+
 ```bash
 # Modify and stage
 echo "version 1" > file.txt
@@ -349,28 +374,33 @@ git status -s
 ```
 
 **Output:**
+
 ```
 MM file.txt
 ```
 
 Two `M`s mean:
+
 - First `M`: staged changes (version 1)
 - Second `M`: unstaged changes (version 2)
 
 **Options:**
 
 #### Option 1: Stage the new changes too
+
 ```bash
 git add file.txt  # Now both versions are staged
 ```
 
 #### Option 2: Commit staged, keep working on unstaged
+
 ```bash
 git commit -m "Add version 1"
 # Continue working with version 2
 ```
 
 #### Option 3: Unstage and restage everything
+
 ```bash
 git restore --staged file.txt
 git add file.txt  # Stage latest version
@@ -413,6 +443,7 @@ git add *.json *.yml *.yaml
 ### Excluding Patterns
 
 **Using .gitignore:**
+
 ```bash
 # Create .gitignore
 cat > .gitignore << 'EOF'
@@ -635,6 +666,7 @@ git status  # Shows staged changes
 ## Practice Exercises
 
 ### Exercise 1: Selective Staging
+
 ```bash
 # Create files with different purposes
 echo "bug fix" > fix.c
@@ -655,6 +687,7 @@ git commit -m "docs: update README"
 ---
 
 ### Exercise 2: Patch Mode Practice
+
 ```bash
 # Create file with mixed changes
 cat > test.c << 'EOF'
@@ -676,6 +709,7 @@ git add -p test.c
 ---
 
 ### Exercise 3: Review Workflow
+
 ```bash
 # Make changes
 echo "change" >> file1.c
@@ -728,6 +762,7 @@ git add **/*.js              # Recursive pattern
 ## Best Practices
 
 ✅ **Do:**
+
 - Review staged changes before committing (`git diff --staged`)
 - Use `git status` frequently
 - Stage related changes together
@@ -735,6 +770,7 @@ git add **/*.js              # Recursive pattern
 - Commit small, logical units
 
 ❌ **Don't:**
+
 - Blindly `git add .` without checking
 - Stage debug/temporary files
 - Mix unrelated changes in one commit
@@ -743,4 +779,4 @@ git add **/*.js              # Recursive pattern
 
 ---
 
-**Next:** [Cherry-Pick Guide](./04-cherry-pick-guide.md)
+[Next](04_cherry-pick.md)
