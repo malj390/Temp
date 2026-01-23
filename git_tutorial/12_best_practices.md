@@ -1,46 +1,46 @@
 [Previous (Quick Reference)](11_quick_reference.md) | [Back to Main](README.md) | [Down](#final-checklist)
 
 ---
-- [[#Commit Messages|Commit Messages]]
-	- [[#Commit Messages#Structure|Structure]]
-	- [[#Commit Messages#Types|Types]]
-	- [[#Commit Messages#Examples|Examples]]
-- [[#Branching Strategy|Branching Strategy]]
-	- [[#Branching Strategy#GitFlow|GitFlow]]
-	- [[#Branching Strategy#GitHub Flow (Simpler)|GitHub Flow (Simpler)]]
-	- [[#Branching Strategy#Trunk-Based|Trunk-Based]]
-- [[#Commit Best Practices|Commit Best Practices]]
-- [[#Branch Best Practices|Branch Best Practices]]
-- [[#Remote Best Practices|Remote Best Practices]]
-- [[#Security Best Practices|Security Best Practices]]
-	- [[#Security Best Practices#Never Commit|Never Commit]]
-	- [[#Security Best Practices#Use .gitignore|Use .gitignore]]
-	- [[#Security Best Practices#Remove Committed Secrets|Remove Committed Secrets]]
-- [[#Code Review Best Practices|Code Review Best Practices]]
-	- [[#Code Review Best Practices#Before Pull Request|Before Pull Request]]
-	- [[#Code Review Best Practices#PR Description Template|PR Description Template]]
-- [[#Performance Best Practices|Performance Best Practices]]
-	- [[#Performance Best Practices#Large Repositories|Large Repositories]]
-	- [[#Performance Best Practices#Clean Up|Clean Up]]
-- [[#Team Collaboration|Team Collaboration]]
-	- [[#Team Collaboration#Communication|Communication]]
-	- [[#Team Collaboration#Code Review Etiquette|Code Review Etiquette]]
-- [[#Git Hygiene|Git Hygiene]]
-	- [[#Git Hygiene#Regular Maintenance|Regular Maintenance]]
-	- [[#Git Hygiene#Before Leaving Project|Before Leaving Project]]
-- [[#Common Patterns|Common Patterns]]
-	- [[#Common Patterns#Hotfix Pattern|Hotfix Pattern]]
-	- [[#Common Patterns#Feature Pattern|Feature Pattern]]
-	- [[#Common Patterns#Release Pattern|Release Pattern]]
-- [[#Anti-Patterns to Avoid|Anti-Patterns to Avoid]]
-- [[#Tools and Integration|Tools and Integration]]
-	- [[#Tools and Integration#Useful Git Tools|Useful Git Tools]]
-	- [[#Tools and Integration#Git Hooks Example|Git Hooks Example]]
-- [[#Learning Resources|Learning Resources]]
-	- [[#Learning Resources#Practice|Practice]]
-	- [[#Learning Resources#Documentation|Documentation]]
-	- [[#Learning Resources#Community|Community]]
-- [[#Final Checklist|Final Checklist]]
+- [Commit Messages](#Commit%20Messages)
+	- [Structure](#Structure)
+	- [Types](#Types)
+	- [Examples](#Examples)
+- [Branching Strategy](#Branching%20Strategy)
+	- [GitFlow](#GitFlow)
+	- [GitHub Flow (Simpler)](#GitHub%20Flow%20(Simpler))
+	- [Trunk-Based](#Trunk-Based)
+- [Commit Best Practices](#Commit%20Best%20Practices)
+- [Branch Best Practices](#Branch%20Best%20Practices)
+- [Remote Best Practices](#Remote%20Best%20Practices)
+- [Security Best Practices](#Security%20Best%20Practices)
+	- [Never Commit](#Never%20Commit)
+	- [Use .gitignore](#Use%20.gitignore)
+	- [Remove Committed Secrets](#Remove%20Committed%20Secrets)
+- [Code Review Best Practices](#Code%20Review%20Best%20Practices)
+	- [Before Pull Request](#Before%20Pull%20Request)
+	- [PR Description Template](#PR%20Description%20Template)
+- [Performance Best Practices](#Performance%20Best%20Practices)
+	- [Large Repositories](#Large%20Repositories)
+	- [Clean Up](#Clean%20Up)
+- [Team Collaboration](#Team%20Collaboration)
+	- [Communication](#Communication)
+	- [Code Review Etiquette](#Code%20Review%20Etiquette)
+- [Git Hygiene](#Git%20Hygiene)
+	- [Regular Maintenance](#Regular%20Maintenance)
+	- [Before Leaving Project](#Before%20Leaving%20Project)
+- [Common Patterns](#Common%20Patterns)
+	- [Hotfix Pattern](#Hotfix%20Pattern)
+	- [Feature Pattern](#Feature%20Pattern)
+	- [Release Pattern](#Release%20Pattern)
+- [Anti-Patterns to Avoid](#Anti-Patterns%20to%20Avoid)
+- [Tools and Integration](#Tools%20and%20Integration)
+	- [Useful Git Tools](#Useful%20Git%20Tools)
+	- [Git Hooks Example](#Git%20Hooks%20Example)
+- [Learning Resources](#Learning%20Resources)
+	- [Practice](#Practice)
+	- [Documentation](#Documentation)
+	- [Community](#Community)
+- [Final Checklist](#Final%20Checklist)
 
 ---
 

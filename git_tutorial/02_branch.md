@@ -1,62 +1,62 @@
 [Previous (Basic Git Commands)](01_basic.md) | [Back to Main](README.md) | [Next (Staging Changes)](03_stages.md) | [Down](#quick-reference)
 
 ---
-- [[#Overview|Overview]]
-- [[#Understanding Branches|Understanding Branches]]
-- [[#Part 1: Creating Branches|Part 1: Creating Branches]]
-	- [[#Part 1: Creating Branches#`git checkout -b <name> <start-point>` - Branch from Specific Commit|`git checkout -b <name> <start-point>` - Branch from Specific Commit]]
-- [[#Part 2: Switching Between Branches|Part 2: Switching Between Branches]]
-	- [[#Part 2: Switching Between Branches#`git checkout <branch>` - Switch Branch|`git checkout <branch>` - Switch Branch]]
-	- [[#Part 2: Switching Between Branches#`git switch <branch>` - Modern Switch|`git switch <branch>` - Modern Switch]]
-	- [[#Part 2: Switching Between Branches#Switching with Uncommitted Changes|Switching with Uncommitted Changes]]
-		- [[#Switching with Uncommitted Changes#Option 1: Commit the changes|Option 1: Commit the changes]]
-		- [[#Switching with Uncommitted Changes#Option 2: Stash the changes (recommended for temporary switch)|Option 2: Stash the changes (recommended for temporary switch)]]
-		- [[#Switching with Uncommitted Changes#Option 3: Carry changes (if no conflicts)|Option 3: Carry changes (if no conflicts)]]
-- [[#Part 3: Viewing Branches|Part 3: Viewing Branches]]
-	- [[#Part 3: Viewing Branches#`git branch` - List Local Branches|`git branch` - List Local Branches]]
-	- [[#Part 3: Viewing Branches#`git branch -a` - List All Branches (Local + Remote)|`git branch -a` - List All Branches (Local + Remote)]]
-	- [[#Part 3: Viewing Branches#`git branch -r` - List Remote Branches Only|`git branch -r` - List Remote Branches Only]]
-	- [[#Part 3: Viewing Branches#`git branch -v` - List with Last Commit|`git branch -v` - List with Last Commit]]
-	- [[#Part 3: Viewing Branches#`git branch -vv` - Show Tracking Information|`git branch -vv` - Show Tracking Information]]
-- [[#Part 4: Deleting Branches|Part 4: Deleting Branches]]
-	- [[#Part 4: Deleting Branches#`git branch -d <branch>` - Safe Delete (Merged Only)|`git branch -d <branch>` - Safe Delete (Merged Only)]]
-	- [[#Part 4: Deleting Branches#`git branch -D <branch>` - Force Delete|`git branch -D <branch>` - Force Delete]]
-	- [[#Part 4: Deleting Branches#Deleting Remote Branches|Deleting Remote Branches]]
-		- [[#Deleting Remote Branches#`git push origin --delete <branch>` - Delete Remote Branch|`git push origin --delete <branch>` - Delete Remote Branch]]
-	- [[#Part 4: Deleting Branches#Pruning Stale Remote References|Pruning Stale Remote References]]
-- [[#Part 5: Renaming Branches|Part 5: Renaming Branches]]
-	- [[#Part 5: Renaming Branches#`git branch -m <new-name>` - Rename Current Branch|`git branch -m <new-name>` - Rename Current Branch]]
-	- [[#Part 5: Renaming Branches#`git branch -m <old> <new>` - Rename Any Branch|`git branch -m <old> <new>` - Rename Any Branch]]
-	- [[#Part 5: Renaming Branches#Renaming and Updating Remote|Renaming and Updating Remote]]
-- [[#Part 6: Local vs Remote Branches|Part 6: Local vs Remote Branches]]
-	- [[#Part 6: Local vs Remote Branches#Understanding the Relationship|Understanding the Relationship]]
-	- [[#Part 6: Local vs Remote Branches#Setting Up Tracking|Setting Up Tracking]]
-		- [[#Setting Up Tracking#Automatic (when pushing with -u)|Automatic (when pushing with -u)]]
-		- [[#Setting Up Tracking#Manual tracking setup|Manual tracking setup]]
-	- [[#Part 6: Local vs Remote Branches#Checking Tracking Status|Checking Tracking Status]]
-	- [[#Part 6: Local vs Remote Branches#Fetching Remote Branches|Fetching Remote Branches]]
-	- [[#Part 6: Local vs Remote Branches#Comparing Local and Remote|Comparing Local and Remote]]
-- [[#Part 7: Branch Naming Conventions|Part 7: Branch Naming Conventions]]
-	- [[#Part 7: Branch Naming Conventions#Common Patterns|Common Patterns]]
-		- [[#Common Patterns#By Type|By Type]]
-		- [[#Common Patterns#By Developer|By Developer]]
-		- [[#Common Patterns#By Issue/Ticket|By Issue/Ticket]]
-	- [[#Part 7: Branch Naming Conventions#Best Practices|Best Practices]]
-- [[#Part 8: Branch Workflows|Part 8: Branch Workflows]]
-	- [[#Part 8: Branch Workflows#Feature Branch Workflow|Feature Branch Workflow]]
-	- [[#Part 8: Branch Workflows#Hotfix Workflow|Hotfix Workflow]]
-	- [[#Part 8: Branch Workflows#Experiment Workflow|Experiment Workflow]]
-- [[#Practice Exercises|Practice Exercises]]
-	- [[#Practice Exercises#Exercise 1: Complete Branch Lifecycle|Exercise 1: Complete Branch Lifecycle]]
-	- [[#Practice Exercises#Exercise 2: Working with Remote Branches|Exercise 2: Working with Remote Branches]]
-	- [[#Practice Exercises#Exercise 3: Branch Comparison|Exercise 3: Branch Comparison]]
-- [[#Common Scenarios|Common Scenarios]]
-	- [[#Common Scenarios#Scenario 1: "I'm on the wrong branch!"|Scenario 1: "I'm on the wrong branch!"]]
-	- [[#Common Scenarios#Scenario 2: "I want to switch branches but have uncommitted work"|Scenario 2: "I want to switch branches but have uncommitted work"]]
-	- [[#Common Scenarios#Scenario 3: "Remote branch was deleted but I still see it"|Scenario 3: "Remote branch was deleted but I still see it"]]
-- [[#Quick Reference|Quick Reference]]
-	- [[#Quick Reference#`git checkout -b <name>` - Create and Switch|`git checkout -b <name>` - Create and Switch]]
-	- [[#Quick Reference#`git switch -c <name>` - Modern Create and Switch|`git switch -c <name>` - Modern Create and Switch]]
+- [Overview](#Overview)
+- [Understanding Branches](#Understanding%20Branches)
+- [Part 1: Creating Branches](#Part%201:%20Creating%20Branches)
+	- [`git checkout -b <name> <start-point>` - Branch from Specific Commit](#%60git%20checkout%20-b%20%3Cname%3E%20%3Cstart-point%3E%60%20-%20Branch%20from%20Specific%20Commit)
+- [Part 2: Switching Between Branches](#Part%202:%20Switching%20Between%20Branches)
+	- [`git checkout <branch>` - Switch Branch](#%60git%20checkout%20%3Cbranch%3E%60%20-%20Switch%20Branch)
+	- [`git switch <branch>` - Modern Switch](#%60git%20switch%20%3Cbranch%3E%60%20-%20Modern%20Switch)
+	- [Switching with Uncommitted Changes](#Switching%20with%20Uncommitted%20Changes)
+		- [Option 1: Commit the changes](#Option%201:%20Commit%20the%20changes)
+		- [Option 2: Stash the changes (recommended for temporary switch)](#Option%202:%20Stash%20the%20changes%20(recommended%20for%20temporary%20switch))
+		- [Option 3: Carry changes (if no conflicts)](#Option%203:%20Carry%20changes%20(if%20no%20conflicts))
+- [Part 3: Viewing Branches](#Part%203:%20Viewing%20Branches)
+	- [`git branch` - List Local Branches](#%60git%20branch%60%20-%20List%20Local%20Branches)
+	- [`git branch -a` - List All Branches (Local + Remote)](#%60git%20branch%20-a%60%20-%20List%20All%20Branches%20(Local%20+%20Remote))
+	- [`git branch -r` - List Remote Branches Only](#%60git%20branch%20-r%60%20-%20List%20Remote%20Branches%20Only)
+	- [`git branch -v` - List with Last Commit](#%60git%20branch%20-v%60%20-%20List%20with%20Last%20Commit)
+	- [`git branch -vv` - Show Tracking Information](#%60git%20branch%20-vv%60%20-%20Show%20Tracking%20Information)
+- [Part 4: Deleting Branches](#Part%204:%20Deleting%20Branches)
+	- [`git branch -d <branch>` - Safe Delete (Merged Only)](#%60git%20branch%20-d%20%3Cbranch%3E%60%20-%20Safe%20Delete%20(Merged%20Only))
+	- [`git branch -D <branch>` - Force Delete](#%60git%20branch%20-D%20%3Cbranch%3E%60%20-%20Force%20Delete)
+	- [Deleting Remote Branches](#Deleting%20Remote%20Branches)
+		- [`git push origin --delete <branch>` - Delete Remote Branch](#%60git%20push%20origin%20--delete%20%3Cbranch%3E%60%20-%20Delete%20Remote%20Branch)
+	- [Pruning Stale Remote References](#Pruning%20Stale%20Remote%20References)
+- [Part 5: Renaming Branches](#Part%205:%20Renaming%20Branches)
+	- [`git branch -m <new-name>` - Rename Current Branch](#%60git%20branch%20-m%20%3Cnew-name%3E%60%20-%20Rename%20Current%20Branch)
+	- [`git branch -m <old> <new>` - Rename Any Branch](#%60git%20branch%20-m%20%3Cold%3E%20%3Cnew%3E%60%20-%20Rename%20Any%20Branch)
+	- [Renaming and Updating Remote](#Renaming%20and%20Updating%20Remote)
+- [Part 6: Local vs Remote Branches](#Part%206:%20Local%20vs%20Remote%20Branches)
+	- [Understanding the Relationship](#Understanding%20the%20Relationship)
+	- [Setting Up Tracking](#Setting%20Up%20Tracking)
+		- [Automatic (when pushing with -u)](#Automatic%20(when%20pushing%20with%20-u))
+		- [Manual tracking setup](#Manual%20tracking%20setup)
+	- [Checking Tracking Status](#Checking%20Tracking%20Status)
+	- [Fetching Remote Branches](#Fetching%20Remote%20Branches)
+	- [Comparing Local and Remote](#Comparing%20Local%20and%20Remote)
+- [Part 7: Branch Naming Conventions](#Part%207:%20Branch%20Naming%20Conventions)
+	- [Common Patterns](#Common%20Patterns)
+		- [By Type](#By%20Type)
+		- [By Developer](#By%20Developer)
+		- [By Issue/Ticket](#By%20Issue/Ticket)
+	- [Best Practices](#Best%20Practices)
+- [Part 8: Branch Workflows](#Part%208:%20Branch%20Workflows)
+	- [Feature Branch Workflow](#Feature%20Branch%20Workflow)
+	- [Hotfix Workflow](#Hotfix%20Workflow)
+	- [Experiment Workflow](#Experiment%20Workflow)
+- [Practice Exercises](#Practice%20Exercises)
+	- [Exercise 1: Complete Branch Lifecycle](#Exercise%201:%20Complete%20Branch%20Lifecycle)
+	- [Exercise 2: Working with Remote Branches](#Exercise%202:%20Working%20with%20Remote%20Branches)
+	- [Exercise 3: Branch Comparison](#Exercise%203:%20Branch%20Comparison)
+- [Common Scenarios](#Common%20Scenarios)
+	- [Scenario 1: "I'm on the wrong branch!"](#Scenario%201:%20%22I'm%20on%20the%20wrong%20branch!%22)
+	- [Scenario 2: "I want to switch branches but have uncommitted work"](#Scenario%202:%20%22I%20want%20to%20switch%20branches%20but%20have%20uncommitted%20work%22)
+	- [Scenario 3: "Remote branch was deleted but I still see it"](#Scenario%203:%20%22Remote%20branch%20was%20deleted%20but%20I%20still%20see%20it%22)
+- [Quick Reference](#Quick%20Reference)
+	- [`git checkout -b <name>` - Create and Switch](#%60git%20checkout%20-b%20%3Cname%3E%60%20-%20Create%20and%20Switch)
+	- [`git switch -c <name>` - Modern Create and Switch](#%60git%20switch%20-c%20%3Cname%3E%60%20-%20Modern%20Create%20and%20Switch)
 
 ---
 

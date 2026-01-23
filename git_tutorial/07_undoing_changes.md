@@ -1,35 +1,35 @@
 [Previous (Stashing Changes)](06_stashing_changes.md) | [Back to Main](README.md) | [Next (Comparing Changes)](08_comparing_changes.md) | [Down](#quick-reference)
 
 ---
-- [[#Overview|Overview]]
-- [[#Understanding Undo Operations|Understanding Undo Operations]]
-- [[#Part 1: Undoing Working Directory Changes|Part 1: Undoing Working Directory Changes]]
-	- [[#Part 1: Undoing Working Directory Changes#`git restore <file>` - Discard Changes|`git restore <file>` - Discard Changes]]
-	- [[#Part 1: Undoing Working Directory Changes#`git checkout -- <file>` - Old Syntax|`git checkout -- <file>` - Old Syntax]]
-- [[#Part 2: Unstaging Changes|Part 2: Unstaging Changes]]
-	- [[#Part 2: Unstaging Changes#`git restore --staged <file>` - Unstage|`git restore --staged <file>` - Unstage]]
-	- [[#Part 2: Unstaging Changes#`git reset HEAD <file>` - Old Unstage|`git reset HEAD <file>` - Old Unstage]]
-- [[#Part 3: Undoing Commits|Part 3: Undoing Commits]]
-	- [[#Part 3: Undoing Commits#`git reset --soft HEAD~1` - Uncommit, Keep Staged|`git reset --soft HEAD~1` - Uncommit, Keep Staged]]
-	- [[#Part 3: Undoing Commits#`git reset --mixed HEAD~1` - Uncommit, Unstage|`git reset --mixed HEAD~1` - Uncommit, Unstage]]
-	- [[#Part 3: Undoing Commits#`git reset --hard HEAD~1` - Completely Remove|`git reset --hard HEAD~1` - Completely Remove]]
-	- [[#Part 3: Undoing Commits#Reset Comparison|Reset Comparison]]
-	- [[#Part 3: Undoing Commits#Undoing Multiple Commits|Undoing Multiple Commits]]
-- [[#Part 4: Reverting Commits|Part 4: Reverting Commits]]
-	- [[#Part 4: Reverting Commits#`git revert <commit>` - Create Inverse Commit|`git revert <commit>` - Create Inverse Commit]]
-	- [[#Part 4: Reverting Commits#Revert vs Reset|Revert vs Reset]]
-	- [[#Part 4: Reverting Commits#Revert Multiple Commits|Revert Multiple Commits]]
-- [[#Part 5: Recovering Lost Commits|Part 5: Recovering Lost Commits]]
-	- [[#Part 5: Recovering Lost Commits#`git reflog` - See All HEAD Movements|`git reflog` - See All HEAD Movements]]
-	- [[#Part 5: Recovering Lost Commits#Recovering After Hard Reset|Recovering After Hard Reset]]
-- [[#Part 6: Practical Scenarios|Part 6: Practical Scenarios]]
-	- [[#Part 6: Practical Scenarios#Scenario 1: Fix Last Commit Message|Scenario 1: Fix Last Commit Message]]
-	- [[#Part 6: Practical Scenarios#Scenario 2: Add Forgotten File to Last Commit|Scenario 2: Add Forgotten File to Last Commit]]
-	- [[#Part 6: Practical Scenarios#Scenario 3: Undo Pushed Commit Safely|Scenario 3: Undo Pushed Commit Safely]]
-	- [[#Part 6: Practical Scenarios#Scenario 4: Completely Undo Uncommitted Work|Scenario 4: Completely Undo Uncommitted Work]]
-- [[#Part 7: Clean Command|Part 7: Clean Command]]
-	- [[#Part 7: Clean Command#`git clean` - Remove Untracked Files|`git clean` - Remove Untracked Files]]
-- [[#Quick Reference|Quick Reference]]
+- [Overview](#Overview)
+- [Understanding Undo Operations](#Understanding%20Undo%20Operations)
+- [Part 1: Undoing Working Directory Changes](#Part%201:%20Undoing%20Working%20Directory%20Changes)
+	- [`git restore <file>` - Discard Changes](#%60git%20restore%20%3Cfile%3E%60%20-%20Discard%20Changes)
+	- [`git checkout -- <file>` - Old Syntax](#%60git%20checkout%20--%20%3Cfile%3E%60%20-%20Old%20Syntax)
+- [Part 2: Unstaging Changes](#Part%202:%20Unstaging%20Changes)
+	- [`git restore --staged <file>` - Unstage](#%60git%20restore%20--staged%20%3Cfile%3E%60%20-%20Unstage)
+	- [`git reset HEAD <file>` - Old Unstage](#%60git%20reset%20HEAD%20%3Cfile%3E%60%20-%20Old%20Unstage)
+- [Part 3: Undoing Commits](#Part%203:%20Undoing%20Commits)
+	- [`git reset --soft HEAD~1` - Uncommit, Keep Staged](#%60git%20reset%20--soft%20HEAD~1%60%20-%20Uncommit,%20Keep%20Staged)
+	- [`git reset --mixed HEAD~1` - Uncommit, Unstage](#%60git%20reset%20--mixed%20HEAD~1%60%20-%20Uncommit,%20Unstage)
+	- [`git reset --hard HEAD~1` - Completely Remove](#%60git%20reset%20--hard%20HEAD~1%60%20-%20Completely%20Remove)
+	- [Reset Comparison](#Reset%20Comparison)
+	- [Undoing Multiple Commits](#Undoing%20Multiple%20Commits)
+- [Part 4: Reverting Commits](#Part%204:%20Reverting%20Commits)
+	- [`git revert <commit>` - Create Inverse Commit](#%60git%20revert%20%3Ccommit%3E%60%20-%20Create%20Inverse%20Commit)
+	- [Revert vs Reset](#Revert%20vs%20Reset)
+	- [Revert Multiple Commits](#Revert%20Multiple%20Commits)
+- [Part 5: Recovering Lost Commits](#Part%205:%20Recovering%20Lost%20Commits)
+	- [`git reflog` - See All HEAD Movements](#%60git%20reflog%60%20-%20See%20All%20HEAD%20Movements)
+	- [Recovering After Hard Reset](#Recovering%20After%20Hard%20Reset)
+- [Part 6: Practical Scenarios](#Part%206:%20Practical%20Scenarios)
+	- [Scenario 1: Fix Last Commit Message](#Scenario%201:%20Fix%20Last%20Commit%20Message)
+	- [Scenario 2: Add Forgotten File to Last Commit](#Scenario%202:%20Add%20Forgotten%20File%20to%20Last%20Commit)
+	- [Scenario 3: Undo Pushed Commit Safely](#Scenario%203:%20Undo%20Pushed%20Commit%20Safely)
+	- [Scenario 4: Completely Undo Uncommitted Work](#Scenario%204:%20Completely%20Undo%20Uncommitted%20Work)
+- [Part 7: Clean Command](#Part%207:%20Clean%20Command)
+	- [`git clean` - Remove Untracked Files](#%60git%20clean%60%20-%20Remove%20Untracked%20Files)
+- [Quick Reference](#Quick%20Reference)
 
 ---
 

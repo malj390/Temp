@@ -1,33 +1,33 @@
 [Previous (Comparing Changes)](08_comparing_changes.md) | [Back to Main](README.md) | [Next (Merge Strategies)](10_merge_strategies.md) | [Down](#quick-reference)
 
 ---
-- [[#Overview|Overview]]
-- [[#Understanding Remotes|Understanding Remotes]]
-- [[#Part 1: Viewing Remotes|Part 1: Viewing Remotes]]
-	- [[#Part 1: Viewing Remotes#`git remote` - List Remotes|`git remote` - List Remotes]]
-	- [[#Part 1: Viewing Remotes#`git remote show <name>`|`git remote show <name>`]]
-- [[#Part 2: Adding Remotes|Part 2: Adding Remotes]]
-	- [[#Part 2: Adding Remotes#`git remote add <name> <url>`|`git remote add <name> <url>`]]
-- [[#Part 3: Removing/Renaming|Part 3: Removing/Renaming]]
-	- [[#Part 3: Removing/Renaming#Remove Remote|Remove Remote]]
-	- [[#Part 3: Removing/Renaming#Rename Remote|Rename Remote]]
-- [[#Part 4: Fetching and Pulling|Part 4: Fetching and Pulling]]
-	- [[#Part 4: Fetching and Pulling#`git fetch` - Download Without Merging|`git fetch` - Download Without Merging]]
-	- [[#Part 4: Fetching and Pulling#`git pull` - Fetch + Merge|`git pull` - Fetch + Merge]]
-	- [[#Part 4: Fetching and Pulling#Fetch vs Pull|Fetch vs Pull]]
-- [[#Part 5: Pushing|Part 5: Pushing]]
-	- [[#Part 5: Pushing#Basic Push|Basic Push]]
-	- [[#Part 5: Pushing#Force Push (Dangerous!)|Force Push (Dangerous!)]]
-	- [[#Part 5: Pushing#Push All Branches|Push All Branches]]
-- [[#Part 6: Tracking Branches|Part 6: Tracking Branches]]
-	- [[#Part 6: Tracking Branches#Set Upstream|Set Upstream]]
-	- [[#Part 6: Tracking Branches#Check Tracking|Check Tracking]]
-- [[#Part 7: Handling Diverged Branches|Part 7: Handling Diverged Branches]]
-	- [[#Part 7: Handling Diverged Branches#When Push Rejected|When Push Rejected]]
-		- [[#When Push Rejected#Option 1: Pull then Push|Option 1: Pull then Push]]
-		- [[#When Push Rejected#Option 2: Pull with Rebase|Option 2: Pull with Rebase]]
-		- [[#When Push Rejected#Option 3: Force Push (if you're sure!)|Option 3: Force Push (if you're sure!)]]
-- [[#Quick Reference|Quick Reference]]
+- [Overview](#Overview)
+- [Understanding Remotes](#Understanding%20Remotes)
+- [Part 1: Viewing Remotes](#Part%201:%20Viewing%20Remotes)
+	- [`git remote` - List Remotes](#%60git%20remote%60%20-%20List%20Remotes)
+	- [`git remote show <name>`](#%60git%20remote%20show%20%3Cname%3E%60)
+- [Part 2: Adding Remotes](#Part%202:%20Adding%20Remotes)
+	- [`git remote add <name> <url>`](#%60git%20remote%20add%20%3Cname%3E%20%3Curl%3E%60)
+- [Part 3: Removing/Renaming](#Part%203:%20Removing/Renaming)
+	- [Remove Remote](#Remove%20Remote)
+	- [Rename Remote](#Rename%20Remote)
+- [Part 4: Fetching and Pulling](#Part%204:%20Fetching%20and%20Pulling)
+	- [`git fetch` - Download Without Merging](#%60git%20fetch%60%20-%20Download%20Without%20Merging)
+	- [`git pull` - Fetch + Merge](#%60git%20pull%60%20-%20Fetch%20+%20Merge)
+	- [Fetch vs Pull](#Fetch%20vs%20Pull)
+- [Part 5: Pushing](#Part%205:%20Pushing)
+	- [Basic Push](#Basic%20Push)
+	- [Force Push (Dangerous!)](#Force%20Push%20(Dangerous!))
+	- [Push All Branches](#Push%20All%20Branches)
+- [Part 6: Tracking Branches](#Part%206:%20Tracking%20Branches)
+	- [Set Upstream](#Set%20Upstream)
+	- [Check Tracking](#Check%20Tracking)
+- [Part 7: Handling Diverged Branches](#Part%207:%20Handling%20Diverged%20Branches)
+	- [When Push Rejected](#When%20Push%20Rejected)
+		- [Option 1: Pull then Push](#Option%201:%20Pull%20then%20Push)
+		- [Option 2: Pull with Rebase](#Option%202:%20Pull%20with%20Rebase)
+		- [Option 3: Force Push (if you're sure!)](#Option%203:%20Force%20Push%20(if%20you're%20sure!))
+- [Quick Reference](#Quick%20Reference)
 
 ---
 

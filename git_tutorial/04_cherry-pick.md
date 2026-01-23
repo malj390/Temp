@@ -1,52 +1,52 @@
 [Previous (Staging Changes)](03_stages.md) | [Back to Main](README.md) | [Next (Worktree)](05_worktree.md) | [Down](#quick-reference)
 
 ---
-- [[#Overview|Overview]]
-- [[#Understanding Cherry-Pick|Understanding Cherry-Pick]]
-- [[#When to Use Cherry-Pick|When to Use Cherry-Pick]]
-	- [[#When to Use Cherry-Pick#✅ Good Use Cases|✅ Good Use Cases]]
-	- [[#When to Use Cherry-Pick#❌ When NOT to Cherry-Pick|❌ When NOT to Cherry-Pick]]
-- [[#Part 1: Basic Cherry-Pick|Part 1: Basic Cherry-Pick]]
-	- [[#Part 1: Basic Cherry-Pick#`git cherry-pick <commit>` - Apply Single Commit|`git cherry-pick <commit>` - Apply Single Commit]]
-	- [[#Part 1: Basic Cherry-Pick#Cherry-Pick Multiple Commits|Cherry-Pick Multiple Commits]]
-- [[#Part 2: Handling Cherry-Pick Conflicts|Part 2: Handling Cherry-Pick Conflicts]]
-	- [[#Part 2: Handling Cherry-Pick Conflicts#What Causes Conflicts?|What Causes Conflicts?]]
-	- [[#Part 2: Handling Cherry-Pick Conflicts#Resolving Conflicts|Resolving Conflicts]]
-		- [[#Resolving Conflicts#`git cherry-pick --abort`|`git cherry-pick --abort`]]
-		- [[#Resolving Conflicts#`git cherry-pick --skip`|`git cherry-pick --skip`]]
-- [[#Part 3: Cherry-Pick Options|Part 3: Cherry-Pick Options]]
-	- [[#Part 3: Cherry-Pick Options#`git cherry-pick -n` - No Commit (Staging Only)|`git cherry-pick -n` - No Commit (Staging Only)]]
-	- [[#Part 3: Cherry-Pick Options#`git cherry-pick -x` - Record Source Commit|`git cherry-pick -x` - Record Source Commit]]
-	- [[#Part 3: Cherry-Pick Options#`git cherry-pick --edit` - Edit Commit Message|`git cherry-pick --edit` - Edit Commit Message]]
-	- [[#Part 3: Cherry-Pick Options#`git cherry-pick -m` - Cherry-Pick from Merge Commit|`git cherry-pick -m` - Cherry-Pick from Merge Commit]]
-- [[#Part 4: Real-World Scenarios|Part 4: Real-World Scenarios]]
-	- [[#Part 4: Real-World Scenarios#Scenario 1: Bug Fix to Multiple Branches|Scenario 1: Bug Fix to Multiple Branches]]
-	- [[#Part 4: Real-World Scenarios#Scenario 2: Committed to Wrong Branch|Scenario 2: Committed to Wrong Branch]]
-	- [[#Part 4: Real-World Scenarios#Scenario 3: Extract Single Commit from Feature Branch|Scenario 3: Extract Single Commit from Feature Branch]]
-	- [[#Part 4: Real-World Scenarios#Scenario 4: Hotfix to Multiple Versions|Scenario 4: Hotfix to Multiple Versions]]
-	- [[#Part 4: Real-World Scenarios#Scenario 5: Undo an Accidental Revert|Scenario 5: Undo an Accidental Revert]]
-- [[#Part 5: Testing Cherry-Picked Commits|Part 5: Testing Cherry-Picked Commits]]
-	- [[#Part 5: Testing Cherry-Picked Commits#Your Original Scenario|Your Original Scenario]]
-	- [[#Part 5: Testing Cherry-Picked Commits#Compare Different Commits|Compare Different Commits]]
-- [[#Part 6: Advanced Cherry-Pick|Part 6: Advanced Cherry-Pick]]
-	- [[#Part 6: Advanced Cherry-Pick#Cherry-Pick Range|Cherry-Pick Range]]
-	- [[#Part 6: Advanced Cherry-Pick#Cherry-Pick with Strategy|Cherry-Pick with Strategy]]
-	- [[#Part 6: Advanced Cherry-Pick#Interactive Cherry-Pick Selection|Interactive Cherry-Pick Selection]]
-- [[#Part 7: Cherry-Pick vs Alternatives|Part 7: Cherry-Pick vs Alternatives]]
-	- [[#Part 7: Cherry-Pick vs Alternatives#Cherry-Pick vs Merge|Cherry-Pick vs Merge]]
-	- [[#Part 7: Cherry-Pick vs Alternatives#Cherry-Pick vs Rebase|Cherry-Pick vs Rebase]]
-- [[#Practice Exercises|Practice Exercises]]
-	- [[#Practice Exercises#Exercise 1: Basic Cherry-Pick|Exercise 1: Basic Cherry-Pick]]
-	- [[#Practice Exercises#Exercise 2: Resolve Conflict|Exercise 2: Resolve Conflict]]
-	- [[#Practice Exercises#Exercise 3: Selective Cherry-Pick|Exercise 3: Selective Cherry-Pick]]
-- [[#Common Mistakes|Common Mistakes]]
-	- [[#Common Mistakes#❌ Cherry-Picking Too Many Commits|❌ Cherry-Picking Too Many Commits]]
-	- [[#Common Mistakes#✅ Use Merge Instead|✅ Use Merge Instead]]
-	- [[#Common Mistakes#❌ Not Recording Source|❌ Not Recording Source]]
-	- [[#Common Mistakes#✅ Use -x Flag|✅ Use -x Flag]]
-	- [[#Common Mistakes#❌ Cherry-Picking on Shared Branches|❌ Cherry-Picking on Shared Branches]]
-	- [[#Common Mistakes#✅ Cherry-Pick Only on Local/Personal Branches|✅ Cherry-Pick Only on Local/Personal Branches]]
-- [[#Quick Reference|Quick Reference]]
+- [Overview](#Overview)
+- [Understanding Cherry-Pick](#Understanding%20Cherry-Pick)
+- [When to Use Cherry-Pick](#When%20to%20Use%20Cherry-Pick)
+	- [✅ Good Use Cases](#%E2%9C%85%20Good%20Use%20Cases)
+	- [❌ When NOT to Cherry-Pick](#%E2%9D%8C%20When%20NOT%20to%20Cherry-Pick)
+- [Part 1: Basic Cherry-Pick](#Part%201:%20Basic%20Cherry-Pick)
+	- [`git cherry-pick <commit>` - Apply Single Commit](#%60git%20cherry-pick%20%3Ccommit%3E%60%20-%20Apply%20Single%20Commit)
+	- [Cherry-Pick Multiple Commits](#Cherry-Pick%20Multiple%20Commits)
+- [Part 2: Handling Cherry-Pick Conflicts](#Part%202:%20Handling%20Cherry-Pick%20Conflicts)
+	- [What Causes Conflicts?](#What%20Causes%20Conflicts?)
+	- [Resolving Conflicts](#Resolving%20Conflicts)
+		- [`git cherry-pick --abort`](#%60git%20cherry-pick%20--abort%60)
+		- [`git cherry-pick --skip`](#%60git%20cherry-pick%20--skip%60)
+- [Part 3: Cherry-Pick Options](#Part%203:%20Cherry-Pick%20Options)
+	- [`git cherry-pick -n` - No Commit (Staging Only)](#%60git%20cherry-pick%20-n%60%20-%20No%20Commit%20(Staging%20Only))
+	- [`git cherry-pick -x` - Record Source Commit](#%60git%20cherry-pick%20-x%60%20-%20Record%20Source%20Commit)
+	- [`git cherry-pick --edit` - Edit Commit Message](#%60git%20cherry-pick%20--edit%60%20-%20Edit%20Commit%20Message)
+	- [`git cherry-pick -m` - Cherry-Pick from Merge Commit](#%60git%20cherry-pick%20-m%60%20-%20Cherry-Pick%20from%20Merge%20Commit)
+- [Part 4: Real-World Scenarios](#Part%204:%20Real-World%20Scenarios)
+	- [Scenario 1: Bug Fix to Multiple Branches](#Scenario%201:%20Bug%20Fix%20to%20Multiple%20Branches)
+	- [Scenario 2: Committed to Wrong Branch](#Scenario%202:%20Committed%20to%20Wrong%20Branch)
+	- [Scenario 3: Extract Single Commit from Feature Branch](#Scenario%203:%20Extract%20Single%20Commit%20from%20Feature%20Branch)
+	- [Scenario 4: Hotfix to Multiple Versions](#Scenario%204:%20Hotfix%20to%20Multiple%20Versions)
+	- [Scenario 5: Undo an Accidental Revert](#Scenario%205:%20Undo%20an%20Accidental%20Revert)
+- [Part 5: Testing Cherry-Picked Commits](#Part%205:%20Testing%20Cherry-Picked%20Commits)
+	- [Your Original Scenario](#Your%20Original%20Scenario)
+	- [Compare Different Commits](#Compare%20Different%20Commits)
+- [Part 6: Advanced Cherry-Pick](#Part%206:%20Advanced%20Cherry-Pick)
+	- [Cherry-Pick Range](#Cherry-Pick%20Range)
+	- [Cherry-Pick with Strategy](#Cherry-Pick%20with%20Strategy)
+	- [Interactive Cherry-Pick Selection](#Interactive%20Cherry-Pick%20Selection)
+- [Part 7: Cherry-Pick vs Alternatives](#Part%207:%20Cherry-Pick%20vs%20Alternatives)
+	- [Cherry-Pick vs Merge](#Cherry-Pick%20vs%20Merge)
+	- [Cherry-Pick vs Rebase](#Cherry-Pick%20vs%20Rebase)
+- [Practice Exercises](#Practice%20Exercises)
+	- [Exercise 1: Basic Cherry-Pick](#Exercise%201:%20Basic%20Cherry-Pick)
+	- [Exercise 2: Resolve Conflict](#Exercise%202:%20Resolve%20Conflict)
+	- [Exercise 3: Selective Cherry-Pick](#Exercise%203:%20Selective%20Cherry-Pick)
+- [Common Mistakes](#Common%20Mistakes)
+	- [❌ Cherry-Picking Too Many Commits](#%E2%9D%8C%20Cherry-Picking%20Too%20Many%20Commits)
+	- [✅ Use Merge Instead](#%E2%9C%85%20Use%20Merge%20Instead)
+	- [❌ Not Recording Source](#%E2%9D%8C%20Not%20Recording%20Source)
+	- [✅ Use -x Flag](#%E2%9C%85%20Use%20-x%20Flag)
+	- [❌ Cherry-Picking on Shared Branches](#%E2%9D%8C%20Cherry-Picking%20on%20Shared%20Branches)
+	- [✅ Cherry-Pick Only on Local/Personal Branches](#%E2%9C%85%20Cherry-Pick%20Only%20on%20Local/Personal%20Branches)
+- [Quick Reference](#Quick%20Reference)
 
 ---
 

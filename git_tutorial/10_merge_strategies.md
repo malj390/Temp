@@ -1,25 +1,25 @@
 [Previous (Remote Repository Management)](09_remote_repository_management.md) | [Back to Main](README.md) | [Next (Quick Reference)](11_quick_reference.md) | [Down](#quick-reference)
 
 ---
-- [[#Overview|Overview]]
-- [[#Types of Merges|Types of Merges]]
-	- [[#Types of Merges#Fast-Forward Merge|Fast-Forward Merge]]
-	- [[#Types of Merges#Three-Way Merge|Three-Way Merge]]
-- [[#Part 1: Basic Merging|Part 1: Basic Merging]]
-	- [[#Part 1: Basic Merging#`git merge <branch>`|`git merge <branch>`]]
-	- [[#Part 1: Basic Merging#No Fast-Forward|No Fast-Forward]]
-- [[#Part 2: Merge Conflicts|Part 2: Merge Conflicts]]
-	- [[#Part 2: Merge Conflicts#What Causes Conflicts?|What Causes Conflicts?]]
-	- [[#Part 2: Merge Conflicts#Resolving Conflicts|Resolving Conflicts]]
-	- [[#Part 2: Merge Conflicts#Abort Merge|Abort Merge]]
-- [[#Part 3: Rebase|Part 3: Rebase]]
-	- [[#Part 3: Rebase#What is Rebase?|What is Rebase?]]
-	- [[#Part 3: Rebase#Merge vs Rebase|Merge vs Rebase]]
-	- [[#Part 3: Rebase#Interactive Rebase|Interactive Rebase]]
-- [[#Part 4: Merge Strategies|Part 4: Merge Strategies]]
-	- [[#Part 4: Merge Strategies#Recursive (Default)|Recursive (Default)]]
-	- [[#Part 4: Merge Strategies#Ours/Theirs|Ours/Theirs]]
-- [[#Quick Reference|Quick Reference]]
+- [Overview](#Overview)
+- [Types of Merges](#Types%20of%20Merges)
+	- [Fast-Forward Merge](#Fast-Forward%20Merge)
+	- [Three-Way Merge](#Three-Way%20Merge)
+- [Part 1: Basic Merging](#Part%201:%20Basic%20Merging)
+	- [`git merge <branch>`](#%60git%20merge%20%3Cbranch%3E%60)
+	- [No Fast-Forward](#No%20Fast-Forward)
+- [Part 2: Merge Conflicts](#Part%202:%20Merge%20Conflicts)
+	- [What Causes Conflicts?](#What%20Causes%20Conflicts?)
+	- [Resolving Conflicts](#Resolving%20Conflicts)
+	- [Abort Merge](#Abort%20Merge)
+- [Part 3: Rebase](#Part%203:%20Rebase)
+	- [What is Rebase?](#What%20is%20Rebase?)
+	- [Merge vs Rebase](#Merge%20vs%20Rebase)
+	- [Interactive Rebase](#Interactive%20Rebase)
+- [Part 4: Merge Strategies](#Part%204:%20Merge%20Strategies)
+	- [Recursive (Default)](#Recursive%20(Default))
+	- [Ours/Theirs](#Ours/Theirs)
+- [Quick Reference](#Quick%20Reference)
 
 ---
 

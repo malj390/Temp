@@ -1,20 +1,21 @@
 [Back to Main](README.md) | [Next (Basic Git Commands)](01_basic.md) | [Down](#tips-for-using-this-environment)
 
 ---
-- [[#Purpose|Purpose]]
-- [[#Step 1: Create Test Repository|Step 1: Create Test Repository]]
-- [[#Step 2: Create Dummy File Structure|Step 2: Create Dummy File Structure]]
-- [[#Step 3: Verify Structure|Step 3: Verify Structure]]
-- [[#Step 4: Initial Commit|Step 4: Initial Commit]]
-- [[#Step 5: Create Remote Repository (Optional)|Step 5: Create Remote Repository (Optional)]]
-	- [[#Step 5: Create Remote Repository (Optional)#Option A: GitHub|Option A: GitHub]]
-	- [[#Step 5: Create Remote Repository (Optional)#Option B: Local "Remote" (for offline practice)|Option B: Local "Remote" (for offline practice)]]
-- [[#Step 6: Create Additional Dummy Content|Step 6: Create Additional Dummy Content]]
-- [[#Step 7: Verify Setup|Step 7: Verify Setup]]
-- [[#Quick Reset (If You Need to Start Over)|Quick Reset (If You Need to Start Over)]]
-- [[#What You Now Have|What You Now Have]]
-- [[#Ready to Practice!|Ready to Practice!]]
-- [[#Tips for Using This Environment|Tips for Using This Environment]]
+- [Purpose](#Purpose)
+- [Step 1: Create Test Repository](#Step%201:%20Create%20Test%20Repository)
+- [Step 2: Create Dummy File Structure](#Step%202:%20Create%20Dummy%20File%20Structure)
+- [Step 3: Verify Structure](#Step%203:%20Verify%20Structure)
+- [Step 4: Initial Commit](#Step%204:%20Initial%20Commit)
+- [Step 5: Create Remote Repository (Optional)](#Step%205:%20Create%20Remote%20Repository%20(Optional))
+	- [Option A: GitHub](#Option%20A:%20GitHub)
+	- [Option B: Local "Remote" (for offline practice)](#Option%20B:%20Local%20%22Remote%22%20(for%20offline%20practice))
+- [Step 6: Create Additional Dummy Content](#Step%206:%20Create%20Additional%20Dummy%20Content)
+- [Step 7: Verify Setup](#Step%207:%20Verify%20Setup)
+- [Quick Reset (If You Need to Start Over)](#Quick%20Reset%20(If%20You%20Need%20to%20Start%20Over))
+- [What You Now Have](#What%20You%20Now%20Have)
+- [Ready to Practice!](#Ready%20to%20Practice!)
+- [Tips for Using This Environment](#Tips%20for%20Using%20This%20Environment)
+
 ---
 
 # Setup Test Environment
