@@ -1,5 +1,15 @@
 [Previous (Branch Management)](02_branch.md) | [Back to Main](README.md) | [Next (Cherry-Pick)](04_cherry-pick.md) | [Down](#best-practices)
 
+---
+- [Working with Stages](03_stages.md)
+- [Understanding the Three Trees](#understanding-the-three-trees)
+- [Adding to Stage](#part-2-adding-to-stage)
+- [Inspecting Staged Changes](#part-3-inspecting-staged-changes)
+- [Unstaging Changes](#part-4-unstaging-changes)
+- [Modifying Staged Content](#part-5-modifying-staged-content)
+- [Staging Patterns](#part-6-staging-patterns)
+- [Advanced Staging Workflows](#part-7-advanced-staging-workflows)
+---
 # Working with Stages
 
 ## Overview

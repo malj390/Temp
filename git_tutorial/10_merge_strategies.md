@@ -1,6 +1,29 @@
 [Previous (Remote Repository Management)](09_remote_repository_management.md) | [Back to Main](README.md) | [Next (Quick Reference)](11_quick_reference.md) | [Down](#quick-reference)
 
-# 10 - Merge Strategies
+---
+- [Merge Strategies](#merge-strategies)
+	- [Overview](#overview)
+	- [Types of Merges](#types-of-merges)
+		- [Fast-Forward Merge](#fast-forward-merge)
+		- [Three-Way Merge](#three-way-merge)
+	- [Part 1: Basic Merging](#part-1-basic-merging)
+		- [`git merge <branch>`](#git-merge-branch)
+		- [No Fast-Forward](#no-fast-forward)
+	- [Part 2: Merge Conflicts](#part-2-merge-conflicts)
+		- [What Causes Conflicts?](#what-causes-conflicts)
+		- [Resolving Conflicts](#resolving-conflicts)
+		- [Abort Merge](#abort-merge)
+	- [Part 3: Rebase](#part-3-rebase)
+		- [What is Rebase?](#what-is-rebase)
+		- [Merge vs Rebase](#merge-vs-rebase)
+		- [Interactive Rebase](#interactive-rebase)
+	- [Part 4: Merge Strategies](#part-4-merge-strategies)
+		- [Recursive (Default)](#recursive-default)
+		- [Ours/Theirs](#ourstheirs)
+	- [Quick Reference](#quick-reference)
+---
+
+# Merge Strategies
 
 ## Overview
 

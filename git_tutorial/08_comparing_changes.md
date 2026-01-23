@@ -1,6 +1,31 @@
 [Previous (Undoing Changes)](07_undoing_changes.md) | [Back to Main](README.md) | [Next (Remote Repository Management)](09_remote_repository_management.md) | [Down](#quick-reference)
 
-# 08 - Comparing Changes
+---
+- [Comparing Changes](#comparing-changes)
+	- [Overview](#overview)
+	- [Part 1: Basic Diff](#part-1-basic-diff)
+		- [`git diff` - Unstaged Changes](#git-diff---unstaged-changes)
+		- [`git diff --staged` - Staged Changes](#git-diff---staged---staged-changes)
+		- [`git diff HEAD` - All Changes](#git-diff-head---all-changes)
+	- [Part 2: Comparing Commits](#part-2-comparing-commits)
+		- [Between Two Commits](#between-two-commits)
+		- [Comparing Specific Files](#comparing-specific-files)
+	- [Part 3: Comparing Branches](#part-3-comparing-branches)
+		- [`git diff <branch1> <branch2>`](#git-diff-branch1-branch2)
+		- [What's in Branch but Not in Another](#whats-in-branch-but-not-in-another)
+	- [Part 4: Viewing History](#part-4-viewing-history)
+		- [`git log` Basics](#git-log-basics)
+		- [Filtering Logs](#filtering-logs)
+		- [Pretty Formats](#pretty-formats)
+	- [Part 5: Showing Commits](#part-5-showing-commits)
+		- [`git show <commit>`](#git-show-commit)
+	- [Part 6: Diffing Tools](#part-6-diffing-tools)
+		- [Word Diff](#word-diff)
+		- [Statistics](#statistics)
+	- [Quick Reference](#quick-reference)
+---
+
+# Comparing Changes
 
 ## Overview
 

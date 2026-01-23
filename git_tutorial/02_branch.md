@@ -1,5 +1,21 @@
 [Previous (Basic Git Commands)](01_basic.md) | [Back to Main](README.md) | [Next (Staging Changes)](03_stages.md) | [Down](#quick-reference)
 
+---
+- [Branch Management](#branch-management)
+  - [Understanding Branches](#understanding-branches)
+  - [Part 1: Creating Branches](#part-1-creating-branches)
+  - [Part 2: Switching Between Branches](#part-2-switching-between-branches)
+  - [Part 3: Viewing Branches](#part-3-viewing-branches)
+  - [Part 4: Deleting Branches](#part-4-deleting-branches)
+  - [Part 5: Renaming Branches](#part-5-renaming-branches)
+  - [Part 6: Local vs Remote Branches](#part-6-local-vs-remote-branches)
+  - [Part 7: Branch Naming Conventions](#part-7-branch-naming-conventions)
+  - [Part 8: Branch Workflows](#part-8-branch-workflows)
+  - [Practice Exercises](#practice-exercises)
+  - [Common Scenarios](#common-scenarios)
+  - [Quick Reference](#quick-reference)
+---
+
 # Branch Management
 
 ## Overview

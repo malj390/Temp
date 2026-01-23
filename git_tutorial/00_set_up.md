@@ -1,8 +1,6 @@
 [Back to Main](README.md) | [Next (Basic Git Commands)](01_basic.md) | [Down](#tips-for-using-this-environment)
 
-# Table of Contents
-
-- [Table of Contents](#table-of-contents)
+---
 - [Setup Test Environment](#setup-test-environment)
 	- [Purpose](#purpose)
 	- [Step 1: Create Test Repository](#step-1-create-test-repository)
@@ -18,6 +16,8 @@
 	- [What You Now Have](#what-you-now-have)
 	- [Ready to Practice!](#ready-to-practice)
 	- [Tips for Using This Environment](#tips-for-using-this-environment)
+
+---
 
 # Setup Test Environment
 

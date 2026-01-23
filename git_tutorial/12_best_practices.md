@@ -1,6 +1,50 @@
 [Previous (Quick Reference)](11_quick_reference.md) | [Back to Main](README.md) | [Down](#final-checklist)
 
-# 12 - Best Practices
+---
+- [Best Practices](#best-practices)
+	- [Commit Messages](#commit-messages)
+		- [Structure](#structure)
+		- [Types](#types)
+		- [Examples](#examples)
+	- [Branching Strategy](#branching-strategy)
+		- [GitFlow](#gitflow)
+		- [GitHub Flow (Simpler)](#github-flow-simpler)
+		- [Trunk-Based](#trunk-based)
+	- [Commit Best Practices](#commit-best-practices)
+	- [Branch Best Practices](#branch-best-practices)
+	- [Remote Best Practices](#remote-best-practices)
+	- [Security Best Practices](#security-best-practices)
+		- [Never Commit](#never-commit)
+		- [Use .gitignore](#use-gitignore)
+		- [Remove Committed Secrets](#remove-committed-secrets)
+	- [Code Review Best Practices](#code-review-best-practices)
+		- [Before Pull Request](#before-pull-request)
+		- [PR Description Template](#pr-description-template)
+	- [Performance Best Practices](#performance-best-practices)
+		- [Large Repositories](#large-repositories)
+		- [Clean Up](#clean-up)
+	- [Team Collaboration](#team-collaboration)
+		- [Communication](#communication)
+		- [Code Review Etiquette](#code-review-etiquette)
+	- [Git Hygiene](#git-hygiene)
+		- [Regular Maintenance](#regular-maintenance)
+		- [Before Leaving Project](#before-leaving-project)
+	- [Common Patterns](#common-patterns)
+		- [Hotfix Pattern](#hotfix-pattern)
+		- [Feature Pattern](#feature-pattern)
+		- [Release Pattern](#release-pattern)
+	- [Anti-Patterns to Avoid](#anti-patterns-to-avoid)
+	- [Tools and Integration](#tools-and-integration)
+		- [Useful Git Tools](#useful-git-tools)
+		- [Git Hooks Example](#git-hooks-example)
+	- [Learning Resources](#learning-resources)
+		- [Practice](#practice)
+		- [Documentation](#documentation)
+		- [Community](#community)
+	- [Final Checklist](#final-checklist)
+---
+
+# Best Practices
 
 ## Commit Messages
 
