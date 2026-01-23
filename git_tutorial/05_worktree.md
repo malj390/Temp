@@ -2,52 +2,51 @@
 
 ---
 
-- [Git Worktree](#git-worktree)
-  - [Overview](#overview)
-  - [The Problem Worktrees Solve](#the-problem-worktrees-solve)
-  - [Part 1: Creating Worktrees](#part-1-creating-worktrees)
-    - [`git worktree add <path> <branch>` - Create Worktree](#git-worktree-add-path-branch---create-worktree)
-    - [Create Worktree with New Branch](#create-worktree-with-new-branch)
-    - [Create Worktree from Specific Commit](#create-worktree-from-specific-commit)
-  - [Part 2: Viewing Worktrees](#part-2-viewing-worktrees)
-    - [`git worktree list` - Show All Worktrees](#git-worktree-list---show-all-worktrees)
-    - [`git worktree list --porcelain` - Detailed Info](#git-worktree-list---porcelain---detailed-info)
-  - [Part 3: Removing Worktrees](#part-3-removing-worktrees)
-    - [`git worktree remove <path>` - Remove Worktree](#git-worktree-remove-path---remove-worktree)
-    - [Cleanup Workflow](#cleanup-workflow)
-    - [`git worktree prune` - Clean Up Stale References](#git-worktree-prune---clean-up-stale-references)
-  - [Part 4: Real-World Scenarios](#part-4-real-world-scenarios)
-    - [Scenario 1: Feature Development + Urgent Hotfix](#scenario-1-feature-development--urgent-hotfix)
-    - [Scenario 2: Multiple Features in Parallel](#scenario-2-multiple-features-in-parallel)
-    - [Scenario 3: Code Review Different Branches](#scenario-3-code-review-different-branches)
-    - [Scenario 4: Testing Different Versions](#scenario-4-testing-different-versions)
-    - [Scenario 5: Building Multiple Configurations](#scenario-5-building-multiple-configurations)
-  - [Part 5: Worktree Best Practices](#part-5-worktree-best-practices)
-    - [Directory Naming Conventions](#directory-naming-conventions)
-    - [When to Use Worktrees](#when-to-use-worktrees)
-    - [Workflow Pattern](#workflow-pattern)
-  - [Part 6: Worktree Limitations](#part-6-worktree-limitations)
-    - [Can't Check Out Same Branch Twice](#cant-check-out-same-branch-twice)
-    - [Shared Git Directory](#shared-git-directory)
-    - [Disk Space](#disk-space)
-  - [Part 7: Advanced Worktree Usage](#part-7-advanced-worktree-usage)
-    - [Detached HEAD Worktree](#detached-head-worktree)
-    - [Worktree with Sparse Checkout](#worktree-with-sparse-checkout)
-    - [Moving Worktrees](#moving-worktrees)
-  - [Part 8: Troubleshooting](#part-8-troubleshooting)
-    - [Problem: Worktree Directory Deleted Manually](#problem-worktree-directory-deleted-manually)
-    - [Problem: Can't Create Worktree - Branch Exists](#problem-cant-create-worktree---branch-exists)
-    - [Problem: Lost Track of Worktrees](#problem-lost-track-of-worktrees)
-  - [Practice Exercises](#practice-exercises)
-    - [Exercise 1: Basic Worktree Workflow](#exercise-1-basic-worktree-workflow)
-    - [Exercise 2: Parallel Development](#exercise-2-parallel-development)
-    - [Exercise 3: Hotfix Interrupt](#exercise-3-hotfix-interrupt)
-  - [Comparison: Worktree vs Alternatives](#comparison-worktree-vs-alternatives)
-    - [Worktree vs Stash](#worktree-vs-stash)
-    - [Worktree vs Clone](#worktree-vs-clone)
-    - [Worktree vs Branch Switch](#worktree-vs-branch-switch)
-  - [Quick Reference](#quick-reference)
-  - [Key Takeaways](#key-takeaways)
+- [[#Overview|Overview]]
+- [[#The Problem Worktrees Solve|The Problem Worktrees Solve]]
+- [[#Part 1: Creating Worktrees|Part 1: Creating Worktrees]]
+  - [[#Part 1: Creating Worktrees#`git worktree add <path> <branch>` - Create Worktree|`git worktree add <path> <branch>` - Create Worktree]]
+  - [[#Part 1: Creating Worktrees#Create Worktree with New Branch|Create Worktree with New Branch]]
+  - [[#Part 1: Creating Worktrees#Create Worktree from Specific Commit|Create Worktree from Specific Commit]]
+- [[#Part 2: Viewing Worktrees|Part 2: Viewing Worktrees]]
+  - [[#Part 2: Viewing Worktrees#`git worktree list` - Show All Worktrees|`git worktree list` - Show All Worktrees]]
+  - [[#Part 2: Viewing Worktrees#`git worktree list --porcelain` - Detailed Info|`git worktree list --porcelain` - Detailed Info]]
+- [[#Part 3: Removing Worktrees|Part 3: Removing Worktrees]]
+  - [[#Part 3: Removing Worktrees#`git worktree remove <path>` - Remove Worktree|`git worktree remove <path>` - Remove Worktree]]
+  - [[#Part 3: Removing Worktrees#Cleanup Workflow|Cleanup Workflow]]
+  - [[#Part 3: Removing Worktrees#`git worktree prune` - Clean Up Stale References|`git worktree prune` - Clean Up Stale References]]
+- [[#Part 4: Real-World Scenarios|Part 4: Real-World Scenarios]]
+  - [[#Part 4: Real-World Scenarios#Scenario 1: Feature Development + Urgent Hotfix|Scenario 1: Feature Development + Urgent Hotfix]]
+  - [[#Part 4: Real-World Scenarios#Scenario 2: Multiple Features in Parallel|Scenario 2: Multiple Features in Parallel]]
+  - [[#Part 4: Real-World Scenarios#Scenario 3: Code Review Different Branches|Scenario 3: Code Review Different Branches]]
+  - [[#Part 4: Real-World Scenarios#Scenario 4: Testing Different Versions|Scenario 4: Testing Different Versions]]
+  - [[#Part 4: Real-World Scenarios#Scenario 5: Building Multiple Configurations|Scenario 5: Building Multiple Configurations]]
+- [[#Part 5: Worktree Best Practices|Part 5: Worktree Best Practices]]
+  - [[#Part 5: Worktree Best Practices#Directory Naming Conventions|Directory Naming Conventions]]
+  - [[#Part 5: Worktree Best Practices#When to Use Worktrees|When to Use Worktrees]]
+  - [[#Part 5: Worktree Best Practices#Workflow Pattern|Workflow Pattern]]
+- [[#Part 6: Worktree Limitations|Part 6: Worktree Limitations]]
+  - [[#Part 6: Worktree Limitations#Can't Check Out Same Branch Twice|Can't Check Out Same Branch Twice]]
+  - [[#Part 6: Worktree Limitations#Shared Git Directory|Shared Git Directory]]
+  - [[#Part 6: Worktree Limitations#Disk Space|Disk Space]]
+- [[#Part 7: Advanced Worktree Usage|Part 7: Advanced Worktree Usage]]
+  - [[#Part 7: Advanced Worktree Usage#Detached HEAD Worktree|Detached HEAD Worktree]]
+  - [[#Part 7: Advanced Worktree Usage#Worktree with Sparse Checkout|Worktree with Sparse Checkout]]
+  - [[#Part 7: Advanced Worktree Usage#Moving Worktrees|Moving Worktrees]]
+- [[#Part 8: Troubleshooting|Part 8: Troubleshooting]]
+  - [[#Part 8: Troubleshooting#Problem: Worktree Directory Deleted Manually|Problem: Worktree Directory Deleted Manually]]
+  - [[#Part 8: Troubleshooting#Problem: Can't Create Worktree - Branch Exists|Problem: Can't Create Worktree - Branch Exists]]
+  - [[#Part 8: Troubleshooting#Problem: Lost Track of Worktrees|Problem: Lost Track of Worktrees]]
+- [[#Practice Exercises|Practice Exercises]]
+  - [[#Practice Exercises#Exercise 1: Basic Worktree Workflow|Exercise 1: Basic Worktree Workflow]]
+  - [[#Practice Exercises#Exercise 2: Parallel Development|Exercise 2: Parallel Development]]
+  - [[#Practice Exercises#Exercise 3: Hotfix Interrupt|Exercise 3: Hotfix Interrupt]]
+- [[#Comparison: Worktree vs Alternatives|Comparison: Worktree vs Alternatives]]
+  - [[#Comparison: Worktree vs Alternatives#Worktree vs Stash|Worktree vs Stash]]
+  - [[#Comparison: Worktree vs Alternatives#Worktree vs Clone|Worktree vs Clone]]
+  - [[#Comparison: Worktree vs Alternatives#Worktree vs Branch Switch|Worktree vs Branch Switch]]
+- [[#Quick Reference|Quick Reference]]
+- [[#Key Takeaways|Key Takeaways]]
 
 ---
 

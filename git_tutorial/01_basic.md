@@ -1,59 +1,58 @@
 [Previous (Setup Test Environment)](00_set_up.md) | [Back to Main](README.md) | [Next (Branch Management)](02_branch.md) | [Down](#quick-reference)
 
 ---
-- [Basic Git Operations](#basic-git-operations)
-	- [Overview](#overview)
-	- [Understanding the Git Workflow](#understanding-the-git-workflow)
-	- [Part 1: Git Add - Staging Files](#part-1-git-add---staging-files)
-		- [The Purpose](#the-purpose)
-		- [Command Variations](#command-variations)
-			- [`git add .` - Stage All Changes](#git-add----stage-all-changes)
-			- [`git add <file>` - Stage Specific Files](#git-add-file---stage-specific-files)
-			- [`git add <directory>/` - Stage Directory](#git-add-directory---stage-directory)
-			- [`git add -p` - Interactive Staging (Patch Mode)](#git-add--p---interactive-staging-patch-mode)
-		- [Comparison Table: git add Strategies](#comparison-table-git-add-strategies)
-	- [Part 2: Git Commit - Saving Changes](#part-2-git-commit---saving-changes)
-		- [The Purpose](#the-purpose-1)
-		- [Command Variations](#command-variations-1)
-			- [`git commit -m "message"` - Quick Commit](#git-commit--m-message---quick-commit)
-			- [`git commit` - Editor Commit (Multi-line)](#git-commit---editor-commit-multi-line)
-			- [`git commit -a` - Auto-stage and Commit](#git-commit--a---auto-stage-and-commit)
-			- [`git commit --amend` - Modify Last Commit](#git-commit---amend---modify-last-commit)
-		- [Commit Message Guidelines](#commit-message-guidelines)
-			- [Structure](#structure)
-			- [Types](#types)
-			- [Examples](#examples)
-		- [Comparison: Commit Strategies](#comparison-commit-strategies)
-	- [Part 3: Git Push - Syncing with Remote](#part-3-git-push---syncing-with-remote)
-		- [The Purpose](#the-purpose-2)
-		- [Command Variations](#command-variations-2)
-			- [`git push` - Push Current Branch](#git-push---push-current-branch)
-			- [`git push origin <branch>` - Push Specific Branch](#git-push-origin-branch---push-specific-branch)
-			- [`git push -u origin <branch>` - Set Upstream](#git-push--u-origin-branch---set-upstream)
-			- [`git push --force` - Overwrite Remote (⚠️ Dangerous)](#git-push---force---overwrite-remote-️-dangerous)
-	- [Part 4: Git Pull - Getting Remote Changes](#part-4-git-pull---getting-remote-changes)
-		- [The Purpose](#the-purpose-3)
-		- [`git pull` = `git fetch` + `git merge`](#git-pull--git-fetch--git-merge)
-			- [`git pull` - Standard Pull](#git-pull---standard-pull)
-			- [`git pull --rebase` - Pull with Rebase](#git-pull---rebase---pull-with-rebase)
-	- [Part 5: Git Fetch - Download Without Merging](#part-5-git-fetch---download-without-merging)
-		- [The Purpose](#the-purpose-4)
-			- [`git fetch` - Get Remote Changes](#git-fetch---get-remote-changes)
-		- [Git Pull vs Git Fetch](#git-pull-vs-git-fetch)
-	- [Complete Workflow Summary](#complete-workflow-summary)
-		- [Daily Development Workflow](#daily-development-workflow)
-		- [Atomic Commit Workflow](#atomic-commit-workflow)
-		- [Collaborative Workflow](#collaborative-workflow)
-	- [Practice Exercises](#practice-exercises)
-		- [Exercise 1: Selective Staging](#exercise-1-selective-staging)
-		- [Exercise 2: Amend Practice](#exercise-2-amend-practice)
-		- [Exercise 3: Pull vs Fetch](#exercise-3-pull-vs-fetch)
-	- [Common Pitfalls](#common-pitfalls)
-		- [❌ Using `git add .` Without Checking](#-using-git-add--without-checking)
-		- [✅ Always Check First](#-always-check-first)
-		- [❌ Vague Commit Messages](#-vague-commit-messages)
-		- [✅ Descriptive Messages](#-descriptive-messages)
-	- [Quick Reference](#quick-reference)
+- [[#Overview|Overview]]
+- [[#Understanding the Git Workflow|Understanding the Git Workflow]]
+- [[#Part 1: Git Add - Staging Files|Part 1: Git Add - Staging Files]]
+	- [[#Part 1: Git Add - Staging Files#The Purpose|The Purpose]]
+	- [[#Part 1: Git Add - Staging Files#Command Variations|Command Variations]]
+		- [[#Command Variations#`git add .` - Stage All Changes|`git add .` - Stage All Changes]]
+		- [[#Command Variations#`git add <file>` - Stage Specific Files|`git add <file>` - Stage Specific Files]]
+		- [[#Command Variations#`git add <directory>/` - Stage Directory|`git add <directory>/` - Stage Directory]]
+		- [[#Command Variations#`git add -p` - Interactive Staging (Patch Mode)|`git add -p` - Interactive Staging (Patch Mode)]]
+	- [[#Part 1: Git Add - Staging Files#Comparison Table: git add Strategies|Comparison Table: git add Strategies]]
+- [[#Part 2: Git Commit - Saving Changes|Part 2: Git Commit - Saving Changes]]
+	- [[#Part 2: Git Commit - Saving Changes#The Purpose|The Purpose]]
+	- [[#Part 2: Git Commit - Saving Changes#Command Variations|Command Variations]]
+		- [[#Command Variations#`git commit -m "message"` - Quick Commit|`git commit -m "message"` - Quick Commit]]
+		- [[#Command Variations#`git commit` - Editor Commit (Multi-line)|`git commit` - Editor Commit (Multi-line)]]
+		- [[#Command Variations#`git commit -a` - Auto-stage and Commit|`git commit -a` - Auto-stage and Commit]]
+		- [[#Command Variations#`git commit --amend` - Modify Last Commit|`git commit --amend` - Modify Last Commit]]
+	- [[#Part 2: Git Commit - Saving Changes#Commit Message Guidelines|Commit Message Guidelines]]
+		- [[#Commit Message Guidelines#Structure|Structure]]
+		- [[#Commit Message Guidelines#Types|Types]]
+		- [[#Commit Message Guidelines#Examples|Examples]]
+	- [[#Part 2: Git Commit - Saving Changes#Comparison: Commit Strategies|Comparison: Commit Strategies]]
+- [[#Part 3: Git Push - Syncing with Remote|Part 3: Git Push - Syncing with Remote]]
+	- [[#Part 3: Git Push - Syncing with Remote#The Purpose|The Purpose]]
+	- [[#Part 3: Git Push - Syncing with Remote#Command Variations|Command Variations]]
+		- [[#Command Variations#`git push` - Push Current Branch|`git push` - Push Current Branch]]
+		- [[#Command Variations#`git push origin <branch>` - Push Specific Branch|`git push origin <branch>` - Push Specific Branch]]
+		- [[#Command Variations#`git push -u origin <branch>` - Set Upstream|`git push -u origin <branch>` - Set Upstream]]
+		- [[#Command Variations#`git push --force` - Overwrite Remote (⚠️ Dangerous)|`git push --force` - Overwrite Remote (⚠️ Dangerous)]]
+- [[#Part 4: Git Pull - Getting Remote Changes|Part 4: Git Pull - Getting Remote Changes]]
+	- [[#Part 4: Git Pull - Getting Remote Changes#The Purpose|The Purpose]]
+	- [[#Part 4: Git Pull - Getting Remote Changes#`git pull` = `git fetch` + `git merge`|`git pull` = `git fetch` + `git merge`]]
+		- [[#`git pull` = `git fetch` + `git merge`#`git pull` - Standard Pull|`git pull` - Standard Pull]]
+		- [[#`git pull` = `git fetch` + `git merge`#`git pull --rebase` - Pull with Rebase|`git pull --rebase` - Pull with Rebase]]
+- [[#Part 5: Git Fetch - Download Without Merging|Part 5: Git Fetch - Download Without Merging]]
+	- [[#Part 5: Git Fetch - Download Without Merging#The Purpose|The Purpose]]
+		- [[#The Purpose#`git fetch` - Get Remote Changes|`git fetch` - Get Remote Changes]]
+	- [[#Part 5: Git Fetch - Download Without Merging#Git Pull vs Git Fetch|Git Pull vs Git Fetch]]
+- [[#Complete Workflow Summary|Complete Workflow Summary]]
+	- [[#Complete Workflow Summary#Daily Development Workflow|Daily Development Workflow]]
+	- [[#Complete Workflow Summary#Atomic Commit Workflow|Atomic Commit Workflow]]
+	- [[#Complete Workflow Summary#Collaborative Workflow|Collaborative Workflow]]
+- [[#Practice Exercises|Practice Exercises]]
+	- [[#Practice Exercises#Exercise 1: Selective Staging|Exercise 1: Selective Staging]]
+	- [[#Practice Exercises#Exercise 2: Amend Practice|Exercise 2: Amend Practice]]
+	- [[#Practice Exercises#Exercise 3: Pull vs Fetch|Exercise 3: Pull vs Fetch]]
+- [[#Common Pitfalls|Common Pitfalls]]
+	- [[#Common Pitfalls#❌ Using `git add .` Without Checking|❌ Using `git add .` Without Checking]]
+	- [[#Common Pitfalls#✅ Always Check First|✅ Always Check First]]
+	- [[#Common Pitfalls#❌ Vague Commit Messages|❌ Vague Commit Messages]]
+	- [[#Common Pitfalls#✅ Descriptive Messages|✅ Descriptive Messages]]
+- [[#Quick Reference|Quick Reference]]
 
 ---
 

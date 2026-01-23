@@ -1,14 +1,54 @@
 [Previous (Branch Management)](02_branch.md) | [Back to Main](README.md) | [Next (Cherry-Pick)](04_cherry-pick.md) | [Down](#best-practices)
 
 ---
-- [Working with Stages](03_stages.md)
-- [Understanding the Three Trees](#understanding-the-three-trees)
-- [Adding to Stage](#part-2-adding-to-stage)
-- [Inspecting Staged Changes](#part-3-inspecting-staged-changes)
-- [Unstaging Changes](#part-4-unstaging-changes)
-- [Modifying Staged Content](#part-5-modifying-staged-content)
-- [Staging Patterns](#part-6-staging-patterns)
-- [Advanced Staging Workflows](#part-7-advanced-staging-workflows)
+- [[#Overview|Overview]]
+- [[#Understanding the Three Trees|Understanding the Three Trees]]
+- [[#Part 1: The Staging Area Concept|Part 1: The Staging Area Concept]]
+	- [[#Part 1: The Staging Area Concept#What is Staging?|What is Staging?]]
+- [[#Part 2: Adding to Stage|Part 2: Adding to Stage]]
+	- [[#Part 2: Adding to Stage#`git add <file>` - Stage Specific Files|`git add <file>` - Stage Specific Files]]
+	- [[#Part 2: Adding to Stage#`git add .` vs `git add -A` vs `git add -u`|`git add .` vs `git add -A` vs `git add -u`]]
+	- [[#Part 2: Adding to Stage#`git add -p` - Interactive Patch Mode|`git add -p` - Interactive Patch Mode]]
+	- [[#Part 2: Adding to Stage#`git add -i` - Interactive Mode|`git add -i` - Interactive Mode]]
+- [[#Part 3: Inspecting Staged Changes|Part 3: Inspecting Staged Changes]]
+	- [[#Part 3: Inspecting Staged Changes#`git status` - Overview|`git status` - Overview]]
+	- [[#Part 3: Inspecting Staged Changes#`git diff` - Compare Working vs Staged|`git diff` - Compare Working vs Staged]]
+	- [[#Part 3: Inspecting Staged Changes#`git diff --staged` - Compare Staged vs Repository|`git diff --staged` - Compare Staged vs Repository]]
+	- [[#Part 3: Inspecting Staged Changes#`git status -s` - Short Status|`git status -s` - Short Status]]
+- [[#Part 4: Unstaging Changes|Part 4: Unstaging Changes]]
+	- [[#Part 4: Unstaging Changes#`git restore --staged <file>` - Unstage File (Modern)|`git restore --staged <file>` - Unstage File (Modern)]]
+	- [[#Part 4: Unstaging Changes#`git reset HEAD <file>` - Unstage File (Traditional)|`git reset HEAD <file>` - Unstage File (Traditional)]]
+	- [[#Part 4: Unstaging Changes#Comparison: Unstaging Commands|Comparison: Unstaging Commands]]
+- [[#Part 5: Modifying Staged Content|Part 5: Modifying Staged Content]]
+	- [[#Part 5: Modifying Staged Content#Scenario: Staged File, Then Made More Changes|Scenario: Staged File, Then Made More Changes]]
+		- [[#Scenario: Staged File, Then Made More Changes#Option 1: Stage the new changes too|Option 1: Stage the new changes too]]
+		- [[#Scenario: Staged File, Then Made More Changes#Option 2: Commit staged, keep working on unstaged|Option 2: Commit staged, keep working on unstaged]]
+		- [[#Scenario: Staged File, Then Made More Changes#Option 3: Unstage and restage everything|Option 3: Unstage and restage everything]]
+- [[#Part 6: Staging Patterns|Part 6: Staging Patterns]]
+	- [[#Part 6: Staging Patterns#Using Wildcards|Using Wildcards]]
+	- [[#Part 6: Staging Patterns#Staging by Extension|Staging by Extension]]
+	- [[#Part 6: Staging Patterns#Excluding Patterns|Excluding Patterns]]
+- [[#Part 7: Advanced Staging Workflows|Part 7: Advanced Staging Workflows]]
+	- [[#Part 7: Advanced Staging Workflows#Workflow 1: Atomic Commits|Workflow 1: Atomic Commits]]
+	- [[#Part 7: Advanced Staging Workflows#Workflow 2: Partial File Staging|Workflow 2: Partial File Staging]]
+	- [[#Part 7: Advanced Staging Workflows#Workflow 3: Review Before Commit|Workflow 3: Review Before Commit]]
+	- [[#Part 7: Advanced Staging Workflows#Workflow 4: Incremental Staging|Workflow 4: Incremental Staging]]
+- [[#Part 8: Common Staging Patterns|Part 8: Common Staging Patterns]]
+	- [[#Part 8: Common Staging Patterns#Pattern 1: Fix and Feature Separation|Pattern 1: Fix and Feature Separation]]
+	- [[#Part 8: Common Staging Patterns#Pattern 2: Code and Tests Separately|Pattern 2: Code and Tests Separately]]
+	- [[#Part 8: Common Staging Patterns#Pattern 3: Core and Documentation|Pattern 3: Core and Documentation]]
+- [[#Part 9: Troubleshooting Staging|Part 9: Troubleshooting Staging]]
+	- [[#Part 9: Troubleshooting Staging#Problem: Accidentally Staged Wrong Files|Problem: Accidentally Staged Wrong Files]]
+	- [[#Part 9: Troubleshooting Staging#Problem: Can't Remember What's Staged|Problem: Can't Remember What's Staged]]
+	- [[#Part 9: Troubleshooting Staging#Problem: Staged Old Version of File|Problem: Staged Old Version of File]]
+	- [[#Part 9: Troubleshooting Staging#Problem: Want to Uncommit but Keep Staged|Problem: Want to Uncommit but Keep Staged]]
+- [[#Practice Exercises|Practice Exercises]]
+	- [[#Practice Exercises#Exercise 1: Selective Staging|Exercise 1: Selective Staging]]
+	- [[#Practice Exercises#Exercise 2: Patch Mode Practice|Exercise 2: Patch Mode Practice]]
+	- [[#Practice Exercises#Exercise 3: Review Workflow|Exercise 3: Review Workflow]]
+- [[#Quick Reference|Quick Reference]]
+- [[#Best Practices|Best Practices]]
+
 ---
 # Working with Stages
 

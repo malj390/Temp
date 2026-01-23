@@ -1,27 +1,27 @@
 [Previous (Worktree)](05_worktree.md) | [Back to Main](README.md) | [Next (Undoing Changes)](07_undoing_changes.md) | [Down](#quick-reference)
 
 ---
-- [Stashing Changes](#stashing-changes)
-	- [Overview](#overview)
-	- [When to Use Stash](#when-to-use-stash)
-	- [Basic Stashing](#basic-stashing)
-		- [`git stash` - Save Changes](#git-stash---save-changes)
-		- [`git stash save "message"` - Stash with Description](#git-stash-save-message---stash-with-description)
-		- [`git stash list` - View Stashes](#git-stash-list---view-stashes)
-		- [`git stash pop` - Apply and Remove](#git-stash-pop---apply-and-remove)
-		- [`git stash apply` - Apply but Keep](#git-stash-apply---apply-but-keep)
-		- [`git stash drop` - Delete Stash](#git-stash-drop---delete-stash)
-	- [Advanced Stashing](#advanced-stashing)
-		- [`git stash -u` - Include Untracked Files](#git-stash--u---include-untracked-files)
-		- [`git stash -a` - Include All (Even Ignored)](#git-stash--a---include-all-even-ignored)
-		- [`git stash -p` - Partial Stash](#git-stash--p---partial-stash)
-		- [`git stash branch <name>` - Create Branch from Stash](#git-stash-branch-name---create-branch-from-stash)
-	- [Real-World Scenarios](#real-world-scenarios)
-		- [Scenario 1: Quick Bug Fix](#scenario-1-quick-bug-fix)
-		- [Scenario 2: Pull with Conflicts](#scenario-2-pull-with-conflicts)
-		- [Scenario 3: Experiment Without Committing](#scenario-3-experiment-without-committing)
-	- [Stash vs Alternatives](#stash-vs-alternatives)
-	- [Quick Reference](#quick-reference)
+- [[#Overview|Overview]]
+- [[#When to Use Stash|When to Use Stash]]
+- [[#Basic Stashing|Basic Stashing]]
+	- [[#Basic Stashing#`git stash` - Save Changes|`git stash` - Save Changes]]
+	- [[#Basic Stashing#`git stash save "message"` - Stash with Description|`git stash save "message"` - Stash with Description]]
+	- [[#Basic Stashing#`git stash list` - View Stashes|`git stash list` - View Stashes]]
+	- [[#Basic Stashing#`git stash pop` - Apply and Remove|`git stash pop` - Apply and Remove]]
+	- [[#Basic Stashing#`git stash apply` - Apply but Keep|`git stash apply` - Apply but Keep]]
+	- [[#Basic Stashing#`git stash drop` - Delete Stash|`git stash drop` - Delete Stash]]
+- [[#Advanced Stashing|Advanced Stashing]]
+	- [[#Advanced Stashing#`git stash -u` - Include Untracked Files|`git stash -u` - Include Untracked Files]]
+	- [[#Advanced Stashing#`git stash -a` - Include All (Even Ignored)|`git stash -a` - Include All (Even Ignored)]]
+	- [[#Advanced Stashing#`git stash -p` - Partial Stash|`git stash -p` - Partial Stash]]
+	- [[#Advanced Stashing#`git stash branch <name>` - Create Branch from Stash|`git stash branch <name>` - Create Branch from Stash]]
+- [[#Real-World Scenarios|Real-World Scenarios]]
+	- [[#Real-World Scenarios#Scenario 1: Quick Bug Fix|Scenario 1: Quick Bug Fix]]
+	- [[#Real-World Scenarios#Scenario 2: Pull with Conflicts|Scenario 2: Pull with Conflicts]]
+	- [[#Real-World Scenarios#Scenario 3: Experiment Without Committing|Scenario 3: Experiment Without Committing]]
+- [[#Stash vs Alternatives|Stash vs Alternatives]]
+- [[#Quick Reference|Quick Reference]]
+
 ---
 
 # Stashing Changes

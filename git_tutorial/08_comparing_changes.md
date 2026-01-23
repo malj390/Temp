@@ -1,28 +1,28 @@
 [Previous (Undoing Changes)](07_undoing_changes.md) | [Back to Main](README.md) | [Next (Remote Repository Management)](09_remote_repository_management.md) | [Down](#quick-reference)
 
 ---
-- [Comparing Changes](#comparing-changes)
-	- [Overview](#overview)
-	- [Part 1: Basic Diff](#part-1-basic-diff)
-		- [`git diff` - Unstaged Changes](#git-diff---unstaged-changes)
-		- [`git diff --staged` - Staged Changes](#git-diff---staged---staged-changes)
-		- [`git diff HEAD` - All Changes](#git-diff-head---all-changes)
-	- [Part 2: Comparing Commits](#part-2-comparing-commits)
-		- [Between Two Commits](#between-two-commits)
-		- [Comparing Specific Files](#comparing-specific-files)
-	- [Part 3: Comparing Branches](#part-3-comparing-branches)
-		- [`git diff <branch1> <branch2>`](#git-diff-branch1-branch2)
-		- [What's in Branch but Not in Another](#whats-in-branch-but-not-in-another)
-	- [Part 4: Viewing History](#part-4-viewing-history)
-		- [`git log` Basics](#git-log-basics)
-		- [Filtering Logs](#filtering-logs)
-		- [Pretty Formats](#pretty-formats)
-	- [Part 5: Showing Commits](#part-5-showing-commits)
-		- [`git show <commit>`](#git-show-commit)
-	- [Part 6: Diffing Tools](#part-6-diffing-tools)
-		- [Word Diff](#word-diff)
-		- [Statistics](#statistics)
-	- [Quick Reference](#quick-reference)
+- [[#Overview|Overview]]
+- [[#Part 1: Basic Diff|Part 1: Basic Diff]]
+	- [[#Part 1: Basic Diff#`git diff` - Unstaged Changes|`git diff` - Unstaged Changes]]
+	- [[#Part 1: Basic Diff#`git diff --staged` - Staged Changes|`git diff --staged` - Staged Changes]]
+	- [[#Part 1: Basic Diff#`git diff HEAD` - All Changes|`git diff HEAD` - All Changes]]
+- [[#Part 2: Comparing Commits|Part 2: Comparing Commits]]
+	- [[#Part 2: Comparing Commits#Between Two Commits|Between Two Commits]]
+	- [[#Part 2: Comparing Commits#Comparing Specific Files|Comparing Specific Files]]
+- [[#Part 3: Comparing Branches|Part 3: Comparing Branches]]
+	- [[#Part 3: Comparing Branches#`git diff <branch1> <branch2>`|`git diff <branch1> <branch2>`]]
+	- [[#Part 3: Comparing Branches#What's in Branch but Not in Another|What's in Branch but Not in Another]]
+- [[#Part 4: Viewing History|Part 4: Viewing History]]
+	- [[#Part 4: Viewing History#`git log` Basics|`git log` Basics]]
+	- [[#Part 4: Viewing History#Filtering Logs|Filtering Logs]]
+	- [[#Part 4: Viewing History#Pretty Formats|Pretty Formats]]
+- [[#Part 5: Showing Commits|Part 5: Showing Commits]]
+	- [[#Part 5: Showing Commits#`git show <commit>`|`git show <commit>`]]
+- [[#Part 6: Diffing Tools|Part 6: Diffing Tools]]
+	- [[#Part 6: Diffing Tools#Word Diff|Word Diff]]
+	- [[#Part 6: Diffing Tools#Statistics|Statistics]]
+- [[#Quick Reference|Quick Reference]]
+
 ---
 
 # Comparing Changes

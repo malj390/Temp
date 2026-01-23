@@ -1,19 +1,63 @@
 [Previous (Basic Git Commands)](01_basic.md) | [Back to Main](README.md) | [Next (Staging Changes)](03_stages.md) | [Down](#quick-reference)
 
 ---
-- [Branch Management](#branch-management)
-  - [Understanding Branches](#understanding-branches)
-  - [Part 1: Creating Branches](#part-1-creating-branches)
-  - [Part 2: Switching Between Branches](#part-2-switching-between-branches)
-  - [Part 3: Viewing Branches](#part-3-viewing-branches)
-  - [Part 4: Deleting Branches](#part-4-deleting-branches)
-  - [Part 5: Renaming Branches](#part-5-renaming-branches)
-  - [Part 6: Local vs Remote Branches](#part-6-local-vs-remote-branches)
-  - [Part 7: Branch Naming Conventions](#part-7-branch-naming-conventions)
-  - [Part 8: Branch Workflows](#part-8-branch-workflows)
-  - [Practice Exercises](#practice-exercises)
-  - [Common Scenarios](#common-scenarios)
-  - [Quick Reference](#quick-reference)
+- [[#Overview|Overview]]
+- [[#Understanding Branches|Understanding Branches]]
+- [[#Part 1: Creating Branches|Part 1: Creating Branches]]
+	- [[#Part 1: Creating Branches#`git checkout -b <name> <start-point>` - Branch from Specific Commit|`git checkout -b <name> <start-point>` - Branch from Specific Commit]]
+- [[#Part 2: Switching Between Branches|Part 2: Switching Between Branches]]
+	- [[#Part 2: Switching Between Branches#`git checkout <branch>` - Switch Branch|`git checkout <branch>` - Switch Branch]]
+	- [[#Part 2: Switching Between Branches#`git switch <branch>` - Modern Switch|`git switch <branch>` - Modern Switch]]
+	- [[#Part 2: Switching Between Branches#Switching with Uncommitted Changes|Switching with Uncommitted Changes]]
+		- [[#Switching with Uncommitted Changes#Option 1: Commit the changes|Option 1: Commit the changes]]
+		- [[#Switching with Uncommitted Changes#Option 2: Stash the changes (recommended for temporary switch)|Option 2: Stash the changes (recommended for temporary switch)]]
+		- [[#Switching with Uncommitted Changes#Option 3: Carry changes (if no conflicts)|Option 3: Carry changes (if no conflicts)]]
+- [[#Part 3: Viewing Branches|Part 3: Viewing Branches]]
+	- [[#Part 3: Viewing Branches#`git branch` - List Local Branches|`git branch` - List Local Branches]]
+	- [[#Part 3: Viewing Branches#`git branch -a` - List All Branches (Local + Remote)|`git branch -a` - List All Branches (Local + Remote)]]
+	- [[#Part 3: Viewing Branches#`git branch -r` - List Remote Branches Only|`git branch -r` - List Remote Branches Only]]
+	- [[#Part 3: Viewing Branches#`git branch -v` - List with Last Commit|`git branch -v` - List with Last Commit]]
+	- [[#Part 3: Viewing Branches#`git branch -vv` - Show Tracking Information|`git branch -vv` - Show Tracking Information]]
+- [[#Part 4: Deleting Branches|Part 4: Deleting Branches]]
+	- [[#Part 4: Deleting Branches#`git branch -d <branch>` - Safe Delete (Merged Only)|`git branch -d <branch>` - Safe Delete (Merged Only)]]
+	- [[#Part 4: Deleting Branches#`git branch -D <branch>` - Force Delete|`git branch -D <branch>` - Force Delete]]
+	- [[#Part 4: Deleting Branches#Deleting Remote Branches|Deleting Remote Branches]]
+		- [[#Deleting Remote Branches#`git push origin --delete <branch>` - Delete Remote Branch|`git push origin --delete <branch>` - Delete Remote Branch]]
+	- [[#Part 4: Deleting Branches#Pruning Stale Remote References|Pruning Stale Remote References]]
+- [[#Part 5: Renaming Branches|Part 5: Renaming Branches]]
+	- [[#Part 5: Renaming Branches#`git branch -m <new-name>` - Rename Current Branch|`git branch -m <new-name>` - Rename Current Branch]]
+	- [[#Part 5: Renaming Branches#`git branch -m <old> <new>` - Rename Any Branch|`git branch -m <old> <new>` - Rename Any Branch]]
+	- [[#Part 5: Renaming Branches#Renaming and Updating Remote|Renaming and Updating Remote]]
+- [[#Part 6: Local vs Remote Branches|Part 6: Local vs Remote Branches]]
+	- [[#Part 6: Local vs Remote Branches#Understanding the Relationship|Understanding the Relationship]]
+	- [[#Part 6: Local vs Remote Branches#Setting Up Tracking|Setting Up Tracking]]
+		- [[#Setting Up Tracking#Automatic (when pushing with -u)|Automatic (when pushing with -u)]]
+		- [[#Setting Up Tracking#Manual tracking setup|Manual tracking setup]]
+	- [[#Part 6: Local vs Remote Branches#Checking Tracking Status|Checking Tracking Status]]
+	- [[#Part 6: Local vs Remote Branches#Fetching Remote Branches|Fetching Remote Branches]]
+	- [[#Part 6: Local vs Remote Branches#Comparing Local and Remote|Comparing Local and Remote]]
+- [[#Part 7: Branch Naming Conventions|Part 7: Branch Naming Conventions]]
+	- [[#Part 7: Branch Naming Conventions#Common Patterns|Common Patterns]]
+		- [[#Common Patterns#By Type|By Type]]
+		- [[#Common Patterns#By Developer|By Developer]]
+		- [[#Common Patterns#By Issue/Ticket|By Issue/Ticket]]
+	- [[#Part 7: Branch Naming Conventions#Best Practices|Best Practices]]
+- [[#Part 8: Branch Workflows|Part 8: Branch Workflows]]
+	- [[#Part 8: Branch Workflows#Feature Branch Workflow|Feature Branch Workflow]]
+	- [[#Part 8: Branch Workflows#Hotfix Workflow|Hotfix Workflow]]
+	- [[#Part 8: Branch Workflows#Experiment Workflow|Experiment Workflow]]
+- [[#Practice Exercises|Practice Exercises]]
+	- [[#Practice Exercises#Exercise 1: Complete Branch Lifecycle|Exercise 1: Complete Branch Lifecycle]]
+	- [[#Practice Exercises#Exercise 2: Working with Remote Branches|Exercise 2: Working with Remote Branches]]
+	- [[#Practice Exercises#Exercise 3: Branch Comparison|Exercise 3: Branch Comparison]]
+- [[#Common Scenarios|Common Scenarios]]
+	- [[#Common Scenarios#Scenario 1: "I'm on the wrong branch!"|Scenario 1: "I'm on the wrong branch!"]]
+	- [[#Common Scenarios#Scenario 2: "I want to switch branches but have uncommitted work"|Scenario 2: "I want to switch branches but have uncommitted work"]]
+	- [[#Common Scenarios#Scenario 3: "Remote branch was deleted but I still see it"|Scenario 3: "Remote branch was deleted but I still see it"]]
+- [[#Quick Reference|Quick Reference]]
+	- [[#Quick Reference#`git checkout -b <name>` - Create and Switch|`git checkout -b <name>` - Create and Switch]]
+	- [[#Quick Reference#`git switch -c <name>` - Modern Create and Switch|`git switch -c <name>` - Modern Create and Switch]]
+
 ---
 
 # Branch Management
