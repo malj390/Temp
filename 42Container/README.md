@@ -31,6 +31,48 @@ This repository provides a Docker-based development environment that replicates 
 - **Docker:** You must have Docker installed and running on your system.
 - **Git:** Your name and email should be configured in your global `.gitconfig` file (`~/.gitconfig`).
 
+## For Windows Users: Using WSL 2
+
+This project is designed for a Linux environment and its scripts (`.sh` files) are not compatible with Windows PowerShell. The recommended way to use this environment on Windows is through the **Windows Subsystem for Linux (WSL 2)**.
+
+WSL 2 provides a full Linux kernel running directly on Windows, offering the best performance and compatibility for Docker.
+
+### WSL 2 Setup Guide
+
+* **Ensure [Docker Desktop](https://www.docker.com/products/docker-desktop/) is Running:** Before proceeding with any steps, make sure Docker Desktop is installed and actively running on your Windows machine. The Docker engine must be operational for any Docker commands (including building images or running containers) to succeed.
+1. **Install WSL 2:** If you don't have WSL installed, open a PowerShell terminal as an administrator and run:
+   
+   ```powershell
+   wsl --install
+   ```
+   
+   This command will install the latest Ubuntu distribution by default. A reboot may be required.
+
+2. **Install Docker Desktop:** Download and install [Docker Desktop for Windows](https://www.docker.com/products/docker-desktop). During setup, ensure you select the option to **"Use the WSL 2 based engine"**. If you already have it installed, you can enable WSL 2 integration in Docker Desktop's settings under `Settings > Resources > WSL Integration`.
+
+3. **Open the WSL Terminal:** Once installed, open your WSL distribution (e.g., "Ubuntu") from the Start Menu.
+
+4. **Clone the project:** Inside the WSL terminal, clone this repository.
+   
+   ```bash
+   git clone <repository_url>
+   cd <repository_directory>
+   ```
+
+5. **Follow the standard instructions:** From this point on, you are in a Linux environment. You can now follow the main `Getting Started` guide as written, by running `./run.sh` and `./setup_alias.sh` from within your WSL terminal. Your files will be accessible from both Windows and WSL.
+
+### A Note on Performance
+
+You might be concerned about performance, thinking this setup is like a "virtual machine inside a virtual machine." However, the integration between WSL 2 and Docker Desktop is highly optimized to be very efficient.
+
+- **CPU and Memory are Near-Native:** WSL 2 runs on a lightweight, highly integrated hypervisor, not a traditional, slow VM. For CPU-intensive tasks like compiling or running `valgrind`, the performance is near-native. You should not experience any significant slowdown.
+
+- **File System I/O is Key:** The most important factor for a smooth experience is where you store your project files. For the best performance, **always store your project files inside the WSL filesystem** (e.g., in your WSL home directory, `~/projects/`). Accessing files from the Windows filesystem (e.g., `/mnt/c/Users/...`) is much slower and not recommended for active development.
+
+By following this advice, you will have a fast and responsive development environment on Windows.
+
+> **Note:** With this setup, Docker commands are run from within WSL, and Docker Desktop for Windows handles the container management.
+
 ## How it Works: The `42` Command
 
 The main goal of this project is to provide a seamless workflow. The intended use is to `cd` into one of your 42 project directories and simply run the `42` command.
