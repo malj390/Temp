@@ -1,11 +1,12 @@
 [Previous (Merge Strategies)](10_merge_strategies.md) | [Back to Main](README.md) | [Next (Best Practices)](12_best_practices.md) | [Down](#aliases-add-to-gitconfig)
 
 ---
-- [Daily Commands](#Daily%20Commands)
-- [Undo Commands](#Undo%20Commands)
-- [Branch Workflows](#Branch%20Workflows)
-- [Troubleshooting](#Troubleshooting)
-- [Aliases (Add to gitconfig)](#Aliases%20(Add%20to%20gitconfig))
+- [Quick Reference Cheatsheet](#quick-reference-cheatsheet)
+	- [Daily Commands](#daily-commands)
+	- [Undo Commands](#undo-commands)
+	- [Branch Workflows](#branch-workflows)
+	- [Troubleshooting](#troubleshooting)
+	- [Aliases (Add to gitconfig)](#aliases-add-to-gitconfig)
 
 ---
 
