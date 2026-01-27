@@ -118,6 +118,8 @@ Before you can use the `42` command, you need to build the Docker image and set 
    
    This script adds a function named `42` to your shell's configuration file (`.zshrc`, `.bashrc`, or `config.fish`). This function is a shortcut that calls the `./run.sh` script from this project's directory, allowing you to launch the container from anywhere on your system.
 
+   > **Warning:** Do not move this repository directory after running the setup script! The alias stores the *absolute path* to this folder. If you move the folder, the `42` command will stop working.
+
 3. **Restart your terminal:** For the `42` command to become active, you need to either restart your terminal or "source" your shell's configuration file (e.g., `source ~/.zshrc`).
 
 ### Step 2: Your Daily Workflow
