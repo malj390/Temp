@@ -34,6 +34,10 @@ RUN apt update && apt install -y \
     nodejs npm \
     sudo \
     fzf \
+    libreadline-dev \
+    libbsd-dev \
+    libx11-dev \
+    libxext-dev \
     && apt clean && rm -rf /var/lib/apt/lists/*
 
 # ---------------------------
@@ -86,6 +90,15 @@ ENV HOME /home/42user
 WORKDIR /home/42user/project
 
 # ---------------------------
+# Configure git account from config file
+# ---------------------------
+RUN git config --global user.name "42user" && \
+	git config --global user.email "42user@example.com"
+
+
+
+
+# ---------------------------
 # Verify core tool versions
 # ---------------------------
 RUN echo "==== Installed tool versions ====" && \
@@ -116,5 +129,7 @@ RUN echo "==== Installed tool versions ====" && \
 # ---------------------------
 WORKDIR /app
 
-# Default shell: zsh
-CMD ["/usr/bin/zsh"]
+# ---------------------------
+# Default command
+# ---------------------------
+CMD ["fish"]

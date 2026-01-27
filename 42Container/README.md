@@ -17,14 +17,31 @@ This repository provides a Docker-based development environment that replicates 
 - **OS:** Ubuntu 22.04, matching the 42 network environment.
 - **C/C++ Development:** `clang-12` (default `cc`), `gcc-10`, `make`, `gdb`, `lldb-12`, `valgrind`.
 - **42 Tools:** `norminette` (v3.3.58).
-- **Shells:** `zsh` (default), `bash`, and `fish`.
+- **Libraries:** Includes `libreadline-dev`, `libbsd-dev`, `libx11-dev`, and `libxext-dev` for Minishell and MiniLibX support.
+- **Shells:** `fish` (default), `zsh`, and `bash`.
 - **Project Directory Access:** Your current working directory is mounted inside the container.
 - **User Permissions:** Runs with your user and group ID to avoid file ownership issues.
 - **Persistent Shell History:** Your `bash`, `zsh`, and `fish` shell histories are shared between your host and the container.
 - **Git Integration:**
   - **Authentication:** Forwards your host's SSH agent to the container for secure `git` operations.
-  - **Identity:** Uses your host's `.gitconfig` file, so your commits are correctly authored.
+  - **Identity:** Uses your host's `.gitconfig` file, or a custom `git_config.env` file.
+  - **SSH Keys:** Automatically mounts your `~/.ssh` directory (Read-Write), allowing you to generate and save keys from within the container.
 - **Other Development Tools:** Includes `python3`, `ruby`, `perl`, `nodejs`, `java`, and more.
+
+## Configuration
+
+### Git Identity
+You can configure your Git user and email by editing the `git_config.env` file in the root of this repository. Uncomment the lines and add your details:
+```bash
+GIT_USER="Your Name"
+GIT_EMAIL="your.email@example.com"
+```
+These settings will be passed to the container and used for your Git commits.
+
+### SSH Keys
+Your `~/.ssh` directory is automatically mounted into the container with Read-Write access.
+- **Existing Keys:** Keys on your host are available inside the container.
+- **New Keys:** You can generate new SSH keys inside the container (e.g., `ssh-keygen`), and they will be saved to your host machine's `~/.ssh` directory, persisting across sessions.
 
 ## Prerequisites
 
